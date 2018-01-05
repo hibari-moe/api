@@ -16,7 +16,7 @@ install:
     ./koch boot -d:release
     ./koch nimble
     cd ..
-before_script: export PATH=`$HOME/nim-$NIMVERSION/bin:$PATH
+before_script: export PATH=$HOME/nim-$NIMVERSION/bin:$PATH
 script:
 - nimble install -y
 - nim c --cc:$CC --verbosity:0 hibari
