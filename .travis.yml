@@ -1,4 +1,6 @@
 language: c
+env:
+- NIMVERSION=0.17.2
 compiler:
 - gcc
 - clang
@@ -6,15 +8,15 @@ matrix:
   fast_finish: true
 install:
 - |
-    wget https://nim-lang.org/download/nim-0.17.2.tar.xz
-    tar -xf nim-0.17.2.tar.xz
-    cd nim-0.17.2
+    wget https://nim-lang.org/download/nim-$NIMVERSION.tar.xz
+    tar -xf nim-$NIMVERSION.tar.xz
+    cd nim-$NIMVERSION
     sh build.sh
     cd ..
 before_script:
 - set -e
 - set -x
-- export PATH=`pwd`/nim-0.17.0/bin:$PATH
+- export PATH=`pwd`/nim-$NIMVERSION/bin:$PATH
 script:
 - nimble install -y
 - nim c --cc:$CC --verbosity:0 hibari
