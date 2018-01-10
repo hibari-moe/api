@@ -1,0 +1,16 @@
+name: hibari-api
+version: 0.1.0
+authors:
+  - James Harris <wopian@wopian.me>
+targets:
+  hibari-api:
+    main: src/api.cr
+crystal: 0.23.0
+license: MIT
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    version: ~> 0.22.0
+  msgpack:
+    github: crystal-community/msgpack-crystal
+    version: ~> 0.7.1

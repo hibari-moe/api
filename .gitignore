@@ -1,2 +1,4 @@
-nimcache
-hibari.exe
+/doc/
+/lib/
+/bin/
+/.shards/
