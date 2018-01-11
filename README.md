@@ -10,6 +10,11 @@ TODO: Write installation instructions here
 
 TODO: Write usage instructions here
 
+SSL:
+```bash
+crystal build --release src/api.cr
+./api --ssl --ssl-key-file your_key_file --ssl-cert-file your_cert_file
+```
 ## Development
 
 TODO: Write development instructions here
