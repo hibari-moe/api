@@ -17,7 +17,26 @@ crystal build --release src/api.cr
 ```
 ## Development
 
-TODO: Write development instructions here
+### Building
+
+```shell
+crystal run src/api.cr              // Build and run
+crystal build src/api.cr            // Build only
+crystal build src/api.cr --release  // Release build
+./api                               // Run built executable
+```
+
+### Install Shards
+
+```shell
+crystal deps
+```
+
+### Run Specs
+
+```shell
+KEMAL_ENV=test crystal spec
+```
 
 ## Contributing
 

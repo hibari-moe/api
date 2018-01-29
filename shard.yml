@@ -3,14 +3,17 @@ version: 0.1.0
 authors:
   - James Harris <wopian@wopian.me>
 targets:
-  hibari-api:
+  api:
     main: src/api.cr
 crystal: 0.24.0
 license: MIT
 dependencies:
-#  spec-kemal:
-#    github: kemalcr/spec-kemal
-#    version: ~> 0.4.0
+  sentry-run:
+    github: faustinoaq/sentry-run
+    version: ~> 0.2.0
+  spec-kemal:
+    github: kemalcr/spec-kemal
+    version: ~> 0.4.0
   kemal:
     github: kemalcr/kemal
     version: ~> 0.22.0

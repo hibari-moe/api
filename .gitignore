@@ -3,3 +3,5 @@ lib
 bin
 .shards
 *.sqlite3
+api
+!api/

@@ -20,6 +20,18 @@ shards:
     github: luislavena/radix
     version: 0.3.8
 
+  sentry:
+    github: samueleaton/sentry
+    version: 0.2.0
+
+  sentry-run:
+    github: faustinoaq/sentry-run
+    version: 0.2.1
+
+  spec-kemal:
+    github: kemalcr/spec-kemal
+    version: 0.4.0
+
   sqlite3:
     github: crystal-lang/crystal-sqlite3
     version: 0.9.0
