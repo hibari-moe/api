@@ -3,5 +3,6 @@ lib
 bin
 .shards
 *.sqlite3
+sentry.lock
 api
 !api/
