@@ -8,13 +8,6 @@ require "./api/*"
 serve_static false
 gzip true
 
-process = Sentry.config(
-  process_name: "API",
-  build_command: "crystal",
-  run_command: "./api",
-  build_args: ["build", "src/api.cr", "-o", "api"]
-)
-
 module Hibari
   before_all do |env|
     env.response.content_type = CONTENT_TYPE
@@ -48,8 +41,17 @@ module Hibari
     }.to_json
   end
 
-  Sentry.run(process) do
+  if ENV.has_key?("CRYSTAL_ENV")
     Kemal.run
+  else
+    process = Sentry.config(
+      process_name: "API",
+      build_command: "crystal",
+      run_command: "./api"
+    )
+    Sentry.run(process) do
+      Kemal.run
+    end
   end
 end
 
