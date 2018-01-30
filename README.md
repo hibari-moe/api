@@ -19,7 +19,11 @@ crystal build --release src/api.cr
 ## Development
 
 ### Install Dependencies
+#### External Dependencies
 
+- sqlite3 (libsqlite3-dev)
+
+#### Crystal Shards
 ```shell
 crystal deps
 ```

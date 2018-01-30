@@ -3,7 +3,17 @@ require "uri"
 require "kemal"
 require "sentry-run"
 require "json"
+require "sqlite3"
 require "./api/*"
+
+db_url = "sqlite3://./db/sqlite3.db"
+puts "opening #{db_url}"
+db = DB.open db_url
+
+def table_names(db)
+  sql = "SELECT name FROM sqlite_master WHERE type='table';"
+  db.query_all(sql, as: String)
+end
 
 serve_static false
 gzip true
@@ -14,32 +24,61 @@ module Hibari
   end
 
   get "/" do |env|
-    { hello: "Hello", world: "World" }.to_json
+    env.response.content_type = "application/json"
+    table_names(db).to_json
   end
 
-  get "/kitsu" do |env|
-    kitsu_get("anime").to_json
+  get "/:table_name" do |env|
+    env.response.content_type = "application/json"
+    table_name = env.params.url["table_name"]
+    unless table_names(db).includes?(table_name)
+      # Ignore nonexistent table requests
+      env.response.status_code = 404
+    else
+      db.query "select * from #{table_name}" do |rs|
+        col_names = rs.column_names
+        rs.each do
+          write_ndjson(env.response.output, col_names, rs)
+          # force chunked response even on small tables
+          env.response.output.flush
+        end
+      end
+    end
   end
 
-  get "/user-stats/:id" do |env|
-   "Data for user #{env.params.url["id"]}".to_json
+  def write_ndjson(io, col_names, rs)
+    JSON.build(io) do |json|
+      json.object do
+        col_names.each do |col|
+          json_encode_field json, col, rs.read
+        end
+      end
+    end
+    io << "\n"
   end
 
-  get "/403" do |env|
-    halt env, status_code: 403, response: "Forbidden"
+  def json_encode_field(json, col, value)
+    case value
+    when Bytes
+      # custom json encoding. Avoid extra allocations
+      json.field col do
+        json.array do
+          value.each do |e|
+            json.scalar e
+          end
+        end
+      end
+    when NotSupported
+      # do not include column as a json field
+    else
+      # encode the value as their built in json format
+      json.field col do
+        value.to_json(json)
+      end
+    end
   end
 
-  error 404 do |env|
-    env.response.content_type = CONTENT_TYPE
-    {
-      errors: [
-        {
-          title: "Not Found",
-          status: "404"
-        }
-      ]
-    }.to_json
-  end
+  alias NotSupported = Char | JSON::Any
 
   if ENV.has_key?("CRYSTAL_ENV")
     Kemal.run
@@ -56,3 +95,5 @@ module Hibari
 end
 
 include Hibari
+
+db.close

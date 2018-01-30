@@ -2,7 +2,7 @@ doc
 lib
 bin
 .shards
-*.sqlite3
+*.db
 sentry.lock
 api
 !api/
