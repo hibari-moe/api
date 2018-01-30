@@ -1,6 +1,7 @@
 # hibari-api
 
-TODO: Write a description here
+Work in progress API backend for extra Kitsu statistics for Hibari.
+Initially developed as part of the *Open Source Systems* module at Bucks New University
 
 ## Installation
 
@@ -17,34 +18,39 @@ crystal build --release src/api.cr
 ```
 ## Development
 
-### Building
-
-```shell
-crystal run src/api.cr              // Build and run
-crystal build src/api.cr            // Build only
-crystal build src/api.cr --release  // Release build
-./api                               // Run built executable
-```
-
-### Install Shards
+### Install Dependencies
 
 ```shell
 crystal deps
 ```
 
-### Run Specs
+### Running
 
 ```shell
-KEMAL_ENV=test crystal spec
+crystal src/api.cr
+```
+
+### Testing
+
+```shell
+crystal spec
+```
+
+### Building
+
+```shell
+crystal build src/api.cr            // Dev build
+crystal build src/api.cr --release  // Release build
+./api                               // Run built executable
 ```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/hibari-api/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
+1. [Fork it](https://github.com/wopian/hibari-api/fork)
+2. Create your feature branch (`git checkout -b feat/myFeature`)
+3. Commit your changes (`git commit -am 'feat: add my feature'`)
+4. Push to the branch (`git push origin feat/myFeature`)
+5. Create a Pull Request
 
 ## Contributors
 
