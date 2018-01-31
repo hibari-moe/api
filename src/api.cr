@@ -102,7 +102,7 @@ module Hibari
 
   alias NotSupported = Char | JSON::Any
 
-  if ENV.has_key?("CRYSTAL_ENV")
+  if ENV.has_key?("KEMAL_ENV")
     Kemal.run
   else
     Sentry.run(process) do

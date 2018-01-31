@@ -4,8 +4,7 @@ require "json"
 describe Hibari do
   it "renders /" do
     get "/"
-    data = JSON.parse(response.body).as_h
-    data["hello"].should eq "Hello"
-    data["world"].should eq "World"
+    data = JSON.parse(response.body).as_a
+    data[0].should eq "contacts"
   end
 end
