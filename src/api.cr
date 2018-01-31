@@ -6,6 +6,14 @@ require "json"
 require "sqlite3"
 require "./api/*"
 
+process = Sentry.config(
+  process_name: "API",
+  build_command: "crystal",
+  run_command: "./api",
+  build_args: [ "build", "src/api.cr", "-o", "./api"],
+  should_build: true
+)
+
 db_url = "sqlite3://./db/sqlite3.db"
 puts "opening #{db_url}"
 db = DB.open db_url
@@ -24,37 +32,51 @@ module Hibari
   end
 
   get "/" do |env|
-    env.response.content_type = "application/json"
     table_names(db).to_json
   end
 
   get "/:table_name" do |env|
-    env.response.content_type = "application/json"
     table_name = env.params.url["table_name"]
     unless table_names(db).includes?(table_name)
       # Ignore nonexistent table requests
       env.response.status_code = 404
     else
-      db.query "select * from #{table_name}" do |rs|
-        col_names = rs.column_names
-        rs.each do
-          write_ndjson(env.response.output, col_names, rs)
-          # force chunked response even on small tables
-          env.response.output.flush
-        end
+      sql = "select * from #{table_name}"
+      db.query sql do |rs|
+        write_json_response(rs.column_names, rs)
       end
     end
   end
 
-  def write_ndjson(io, col_names, rs)
-    JSON.build(io) do |json|
+  get "/:table_name/:id" do |env|
+    table_name = env.params.url["table_name"]
+    id = env.params.url["id"]
+
+    unless table_names(db).includes?(table_name)
+      env.response.status_code = 404
+    else
+      db.query "select * from #{table_name} where id = #{id}" do |rs|
+        write_json_response(rs.column_names, rs)
+      end
+    end
+  end
+
+  def write_json_response(col_names, rs)
+    JSON.build do |json|
       json.object do
-        col_names.each do |col|
-          json_encode_field json, col, rs.read
+        json.field "data" do
+          json.array do
+            rs.each do
+              json.object do
+                col_names.each do |col|
+                  json_encode_field json, col, rs.read
+                end
+              end
+            end
+          end
         end
       end
     end
-    io << "\n"
   end
 
   def json_encode_field(json, col, value)
@@ -83,11 +105,6 @@ module Hibari
   if ENV.has_key?("CRYSTAL_ENV")
     Kemal.run
   else
-    process = Sentry.config(
-      process_name: "API",
-      build_command: "crystal",
-      run_command: "./api"
-    )
     Sentry.run(process) do
       Kemal.run
     end
