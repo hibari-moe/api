@@ -17,7 +17,7 @@ module JsonAPI
     else
       # encode the value as their built in json format
       json.field col do
-        value.to_json(json)
+        value.to_json json
       end
     end
   end
