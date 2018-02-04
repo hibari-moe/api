@@ -1,5 +1,3 @@
-require "http/client"
-require "uri"
 require "kemal"
 require "sentry-run"
 require "json"
@@ -30,7 +28,8 @@ gzip true
 
 module Hibari
   before_all do |env|
-    env.response.content_type = CONTENT_TYPE
+    env.response.content_type = Hibari::CONTENT_TYPE
+    headers env, { "X-Powered-By" => "" }
   end
 
   get "/" do |env|
@@ -71,7 +70,5 @@ module Hibari
     end
   end
 end
-
-include Hibari
 
 db.close

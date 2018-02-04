@@ -1,3 +1,6 @@
+require "http/client"
+require "uri"
+
 module Kitsu
   def get(path, params = nil)
     uri = URI.parse(BASE_URL + path)
