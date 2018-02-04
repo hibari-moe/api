@@ -4,7 +4,9 @@ require "kemal"
 require "sentry-run"
 require "json"
 require "sqlite3"
-require "./api/*"
+require "./hibari/*"
+require "./json_api/*"
+require "./kitsu/*"
 
 process = Sentry.config(
   process_name: "API",
@@ -43,7 +45,7 @@ module Hibari
     else
       sql = "select * from #{table_name}"
       db.query sql do |rs|
-        write_json_response(rs.column_names, rs)
+        JsonAPI.response(rs.column_names, rs)
       end
     end
   end
@@ -56,51 +58,10 @@ module Hibari
       env.response.status_code = 404
     else
       db.query "select * from #{table_name} where id = #{id}" do |rs|
-        write_json_response(rs.column_names, rs)
+      JsonAPI.response(rs.column_names, rs)
       end
     end
   end
-
-  def write_json_response(col_names, rs)
-    JSON.build do |json|
-      json.object do
-        json.field "data" do
-          json.array do
-            rs.each do
-              json.object do
-                col_names.each do |col|
-                  json_encode_field json, col, rs.read
-                end
-              end
-            end
-          end
-        end
-      end
-    end
-  end
-
-  def json_encode_field(json, col, value)
-    case value
-    when Bytes
-      # custom json encoding. Avoid extra allocations
-      json.field col do
-        json.array do
-          value.each do |e|
-            json.scalar e
-          end
-        end
-      end
-    when NotSupported
-      # do not include column as a json field
-    else
-      # encode the value as their built in json format
-      json.field col do
-        value.to_json(json)
-      end
-    end
-  end
-
-  alias NotSupported = Char | JSON::Any
 
   if ENV.has_key?("KEMAL_ENV")
     Kemal.run
