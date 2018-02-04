@@ -28,8 +28,7 @@ gzip true
 
 module Hibari
   before_all do |env|
-    env.response.content_type = Hibari::CONTENT_TYPE
-    headers env, { "X-Powered-By" => "" }
+    headers env, Hibari::HEADERS
   end
 
   get "/" do |env|
