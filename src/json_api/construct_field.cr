@@ -1,7 +1,7 @@
 alias NotSupported = Char | JSON::Any
 
 module JsonAPI
-  def encode_field(json, col, value)
+  def construct_field(json, col, value)
     case value
     when Bytes
       # custom json encoding. Avoid extra allocations
