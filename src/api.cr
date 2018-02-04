@@ -54,8 +54,8 @@ module Hibari
     unless table_names(db).includes? table_name
       env.response.status_code = 404
     else
-      db.query "select * from #{table_name} where id = #{id}" do |rs|
-      JsonAPI.response rs.column_names, rs
+      db.query "select * from #{table_name} where id = ?", id do |rs|
+        JsonAPI.response rs.column_names, rs
       end
     end
   end
