@@ -71,29 +71,32 @@
 
 <h2>Development</h2>
 
-<h3>Install Dependencies</h3>
-
-<h4>External Dependencies</h4>
+<h3>External Dependencies</h3>
 
 <ul><li>sqlite3 (libsqlite3-dev)</li></ul>
 
-<h4>Crystal Shards</h4>
+<h3>Commands</h3>
+
+<h4>Install Shards</h4>
 
 <pre><code class='language-shell'>crystal deps</code></pre>
 
-<h3>Running</h3>
+<h4>Start Dev Server</h4>
 
 <pre><code class='language-shell'>crystal src/api.cr</code></pre>
 
-<h3>Testing</h3>
+<h4>Run Tests</h4>
 
 <pre><code class='language-shell'>crystal spec</code></pre>
 
-<h3>Building</h3>
+<h4>Update Documentation</h4>
 
-<pre><code class='language-shell'>crystal build src/api.cr            // Dev build
-crystal build src/api.cr --release  // Release build
-./api                               // Run built executable</code></pre>
+<pre><code class='language-shell'>crystal docs</code></pre>
+
+<h4>Build Server</h4>
+
+<pre><code class='language-shell'>crystal build src/api.cr --release
+./api</code></pre>
 
 <h2>Contributing</h2>
 

@@ -19,36 +19,41 @@ crystal build --release src/api.cr
 ```
 ## Development
 
-### Install Dependencies
-
-#### External Dependencies
+### External Dependencies
 
 - sqlite3 (libsqlite3-dev)
 
-#### Crystal Shards
+### Commands
+
+#### Install Shards
 
 ```shell
 crystal deps
 ```
 
-### Running
+#### Start Dev Server
 
 ```shell
 crystal src/api.cr
 ```
 
-### Testing
+#### Run Tests
 
 ```shell
 crystal spec
 ```
 
-### Building
+#### Update Documentation
 
 ```shell
-crystal build src/api.cr            // Dev build
-crystal build src/api.cr --release  // Release build
-./api                               // Run built executable
+crystal docs
+```
+
+#### Build Server
+
+```shell
+crystal build src/api.cr --release
+./api
 ```
 
 ## Contributing
