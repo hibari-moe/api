@@ -1,4 +1,5 @@
 module JsonAPI
+  # Creates the JSON:API response object
   def response(col_names, rs)
     JSON.build do |json|
       json.object do

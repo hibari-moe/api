@@ -1,6 +1,17 @@
 alias NotSupported = Char | JSON::Any
 
 module JsonAPI
+  # Creates the fields of JSON:API responses
+  #
+  # Returns the following JSON structures:
+  #
+  # ```json
+  # "key": "value"
+  # ```
+  #
+  # ```json
+  # "key": [ "value" ]
+  # ```
   def construct_field(json, col, value)
     case value
     when Bytes

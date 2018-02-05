@@ -1,6 +1,7 @@
-# hibari-api
+# Hibari API
 
-Work in progress API backend for extra Kitsu statistics for Hibari.
+Work in progress API backend for extra Kitsu statistics for [Hibari](https://github.com/wopian/hibari)
+
 Initially developed as part of the *Open Source Systems* module at Bucks New University
 
 ## Installation
@@ -19,11 +20,13 @@ crystal build --release src/api.cr
 ## Development
 
 ### Install Dependencies
+
 #### External Dependencies
 
 - sqlite3 (libsqlite3-dev)
 
 #### Crystal Shards
+
 ```shell
 crystal deps
 ```

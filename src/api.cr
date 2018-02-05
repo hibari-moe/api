@@ -28,15 +28,18 @@ module Hibari
   extend Errors
 
   before_all do |env|
-    headers env, Hibari::HEADERS
+    headers env, HEADERS
   end
 
   get "/" do |env|
     table_names(db).to_json
   end
 
-  get "/kitsu" do |env|
-    Kitsu.get("anime", env.params.query).to_json
+  get "/kitsu/:resource" do |env|
+    resource = env.params.url["resource"]
+    query = env.params.query
+
+    Kitsu.get(resource, query).to_json
   end
 
   get "/:table_name" do |env|

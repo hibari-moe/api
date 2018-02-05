@@ -1,10 +1,12 @@
 module JsonAPI
-  def error(title, status)
+  def error(status, title, detail = title)
     {
       errors: [
         {
           title: title,
-          status: status
+          detail: detail,
+          status: status,
+          code: status
         }
       ]
     }.to_json
