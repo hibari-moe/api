@@ -2,10 +2,16 @@ require "http/client"
 require "uri"
 
 module Kitsu
-  def get(path, params = nil)
-    uri = URI.parse(BASE_URL + path)
-    uri.query = params
-    response = HTTP::Client.get(uri, headers: HTTP::Headers { "User-Agent" => "hibari-api/#{Hibari::VERSION}/#{Crystal::VERSION} (wopian/hibari-api)" })
+  def get(resource, params = nil)
+    uri = URI.parse(BASE_URL + resource)
+    uri.query = params.to_s
+
+    response = HTTP::Client.get(uri, headers: HTTP::Headers {
+      "Content-Type" => Hibari::CONTENT_TYPE,
+      "Accepts" => Hibari::CONTENT_TYPE,
+      "User-Agent" => "hibari-api/#{Hibari::VERSION}/#{Crystal::VERSION} (wopian/hibari-api)"
+    })
+
     JSON.parse response.body
   end
 end

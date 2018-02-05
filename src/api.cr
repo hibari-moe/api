@@ -35,6 +35,10 @@ module Hibari
     table_names(db).to_json
   end
 
+  get "/kitsu" do |env|
+    Kitsu.get("anime", env.params.query).to_json
+  end
+
   get "/:table_name" do |env|
     table_name = env.params.url["table_name"]
     unless table_names(db).includes? table_name
