@@ -15,8 +15,8 @@ install:
   fi
 - conda info -a
 before_script: crystal deps
-script: crystal spec
-after_script: 
+script:
+- crystal spec
 - crystal docs
 - tectonic report/index.tex --outdir report/out --synctex --chatter minimal #-shell-escape
 deploy:
