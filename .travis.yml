@@ -3,7 +3,7 @@ cache:
   directories:
   - $HOME/miniconda
 before_install: ./db/seed.sh
-after_install:
+install:
 - export PATH="$HOME/miniconda/bin:$PATH"
 - if ! command -v conda > /dev/null; then
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -14,7 +14,7 @@ after_install:
     conda install tectonic;
   fi
 - conda info -a
-after_scripts: tectonic report/index.tex --synctex=2 --output-directory=report/out -shell-escape
+script: tectonic report/index.tex --synctex=2 --output-directory=report/out -shell-escape
 deploy:
   provider: pages
   github-token: $GH_TOKEN
