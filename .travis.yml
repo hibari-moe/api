@@ -14,7 +14,7 @@ install:
     conda install tectonic;
   fi
 - conda info -a
-script: tectonic report/index.tex --synctex=2 --output-directory=report/out -shell-escape
+script: tectonic report/index.tex --outdir report/out --synctex=2 -shell-escape
 deploy:
   provider: pages
   github-token: $GH_TOKEN
