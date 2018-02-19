@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/wopian/hibari-api">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>Hibari - github.com/wopian/hibari-api</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Errors" data-name="errors">
+      <a href="Errors.html">Errors</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/wopian/hibari-api/Hibari" data-name="hibari">
+      <a href="Hibari.html">Hibari</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/JsonAPI" data-name="jsonapi">
+      <a href="JsonAPI.html">JsonAPI</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Kitsu" data-name="kitsu">
+      <a href="Kitsu.html">Kitsu</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/NotSupported" data-name="notsupported">
+      <a href="NotSupported.html">NotSupported</a>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Hibari
+
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Extended Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="Errors.html">Errors</a></li>
+  
+    <li class="other-type"><a href="Hibari.html">Hibari</a></li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/wopian/hibari-api/blob/18e5d0110bb79c5f6efafdb8988bb2f31638d4c4/src/hibari/extend.cr#L1" target="_blank">hibari/extend.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/wopian/hibari-api/blob/18e5d0110bb79c5f6efafdb8988bb2f31638d4c4/src/hibari/headers.cr#L1" target="_blank">hibari/headers.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/wopian/hibari-api/blob/18e5d0110bb79c5f6efafdb8988bb2f31638d4c4/src/hibari/table_names.cr#L1" target="_blank">hibari/table_names.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/wopian/hibari-api/blob/18e5d0110bb79c5f6efafdb8988bb2f31638d4c4/src/hibari/version.cr#L1" target="_blank">hibari/version.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/wopian/hibari-api/blob/18e5d0110bb79c5f6efafdb8988bb2f31638d4c4/src/api.cr#L27" target="_blank">api.cr</a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="HEADERS">
+        <strong>HEADERS</strong> = <code>{<span class="s">&quot;Content-Type&quot;</span> => <span class="t">JsonAPI</span><span class="t">::</span><span class="t">CONTENT_TYPE</span>, <span class="s">&quot;X-Powered-By&quot;</span> => <span class="s">&quot;&quot;</span>, <span class="s">&quot;X-Frame-Options&quot;</span> => <span class="s">&quot;SAMEORIGIN&quot;</span>, <span class="s">&quot;X-Xss-Protection&quot;</span> => <span class="s">&quot;1; mode=block&quot;</span>, <span class="s">&quot;X-Content-Type-Options&quot;</span> => <span class="s">&quot;nosniff&quot;</span>, <span class="s">&quot;Referrer-Policy&quot;</span> => <span class="s">&quot;strict-origin-when-cross-origin&quot;</span>}</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Response headers for the Hibari API</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.1.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#table_names%28db%29-instance-method" class="signature"><strong>#table_names</strong>(db)</a>
+        
+          <div class="summary"><p>Creates a hash map of all the tables in the database</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="table_names(db)-instance-method">
+      <div class="signature">
+        
+        def <strong>table_names</strong>(db)
+
+        <a class="method-permalink" href="#table_names%28db%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Creates a hash map of all the tables in the database</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/18e5d0110bb79c5f6efafdb8988bb2f31638d4c4/src/hibari/table_names.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
