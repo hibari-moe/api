@@ -33,6 +33,6 @@ deploy:
   local-dir: docs
   target-branch: gh-pages
   skip-cleanup: true
-  keep-history: false
+  keep-history: true
   on:
     branch: master
