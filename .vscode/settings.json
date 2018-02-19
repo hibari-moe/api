@@ -1,0 +1,38 @@
+{
+  "latex-workshop.latex.toolchain": [
+    {
+      "command": "xelatex",
+      "args": [
+        "--synctex=2",
+        "--output-directory=out",
+        "--interaction=nonstopmode",
+        "-shell-escape",
+        "%DOC%.tex"
+      ]
+    },
+    {
+      "command": "xelatex",
+      "args": [
+        "--synctex=2",
+        "--output-directory=out",
+        "--interaction=nonstopmode",
+        "-shell-escape",
+        "%DOC%.tex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.clean.enabled": false,
+  "latex-workshop.latex.outputDir": "out",
+  "latex-workshop.latex.autoBuild.onSave.enabled": true,
+  "latex-workshop.latex.autoBuild.onTexChange.enabled": true,
+  "spellright.groupDictionaries": false,
+  "spellright.language": "en-GB",
+  "latex-workshop.debug.showUpdateMessage": false,
+  "files.exclude": {
+    "docs": true,
+    "lib": true,
+    "**/.git": true,
+    "**/.gitkeep": true,
+    "**/out": true
+  }
+}

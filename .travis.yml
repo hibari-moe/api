@@ -1,2 +1,26 @@
 language: crystal
+cache:
+  directories:
+  - $HOME/miniconda
 before_install: ./db/seed.sh
+after_install:
+- export PATH="$HOME/miniconda/bin:$PATH"
+- if ! command -v conda > /dev/null; then
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+    bash miniconda.sh -b -p $HOME/miniconda -u;
+    conda config --add channels conda-forge;
+    conda config --set always_yes yes;
+    conda update --all;
+    conda install tectonic;
+  fi
+- conda info -a
+after_scripts: tectonic report/index.tex --synctex=2 --output-directory=report/out -shell-escape
+deploy:
+  provider: pages
+  github-token: $GH_TOKEN
+  file: report/out/index.pdf
+  target-branch: report
+  skip-cleanup: true
+  keep-history: false
+  on:
+    branch: master
