@@ -18,7 +18,7 @@ script: tectonic report/index.tex --synctex=2 --output-directory=report/out -she
 deploy:
   provider: pages
   github-token: $GH_TOKEN
-  file: report/out/index.pdf
+  local-dir: report/out
   target-branch: report
   skip-cleanup: true
   keep-history: false
