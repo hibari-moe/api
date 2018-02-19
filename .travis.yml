@@ -14,8 +14,11 @@ install:
     conda install tectonic;
   fi
 - conda info -a
-script: tectonic report/index.tex --outdir report/out --synctex --chatter minimal #-shell-escape
-after_success: crystal docs
+before_script: crystal deps
+script: crystal specs
+after_script: 
+- crystal docs
+- tectonic report/index.tex --outdir report/out --synctex --chatter minimal #-shell-escape
 deploy:
 - provider: pages
   github-token: $GH_TOKEN
