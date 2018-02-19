@@ -15,11 +15,20 @@ install:
   fi
 - conda info -a
 script: tectonic report/index.tex --outdir report/out --chatter minimal #-shell-escape
+after_success: crystal docs
 deploy:
-  provider: pages
+- provider: pages
   github-token: $GH_TOKEN
   local-dir: report/out
   target-branch: report
+  skip-cleanup: true
+  keep-history: false
+  on:
+    branch: master
+- provider: pages
+  github-token: $GH_TOKEN
+  local-dir: docs
+  target-branch: gh-pages
   skip-cleanup: true
   keep-history: false
   on:

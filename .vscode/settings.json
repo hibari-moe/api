@@ -29,7 +29,6 @@
   "spellright.language": "en-GB",
   "latex-workshop.debug.showUpdateMessage": false,
   "files.exclude": {
-    "docs": true,
     "lib": true,
     "**/.git": true,
     "**/.gitkeep": true,
