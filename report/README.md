@@ -23,4 +23,4 @@
 tectonic report/index.tex --outdir report/out --synctex
 ```
 
-[miniconda](https://conda.io/miniconda.html)
+[miniconda]: https://conda.io/miniconda.html
