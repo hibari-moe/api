@@ -13,7 +13,7 @@
 ## Install
 
 1. Install [miniconda]
-2. `conda config --add channels conda-forge
+2. `conda config --add channels conda-forge`
 3. `conda update --all`
 4. `conda install tectonic`
 
