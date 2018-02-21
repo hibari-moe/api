@@ -1,7 +1,7 @@
-lib
-docs
-.shards
-*.db
+lib/
+docs/
+.shards/
+db/
 sentry.lock
 api
 !api/
