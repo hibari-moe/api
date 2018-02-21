@@ -12,8 +12,8 @@ install:
     conda config --set always_yes yes;
   fi
 - conda install pygments tectonic && conda update --all
-before_script: bin/deps
 script:
+- bash bin/deps
 - bash bin/spec
 - bash bin/docs
 - bash bin/report
