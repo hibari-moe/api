@@ -14,9 +14,9 @@ install:
 - conda install pygments tectonic && conda update --all
 before_script: bin/deps
 script:
-- bin/spec
-- bin/docs
-- bin/report
+- bash bin/spec
+- bash bin/docs
+- bash bin/report
 deploy:
 - provider: pages
   github-token: $GH_TOKEN
