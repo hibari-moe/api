@@ -11,6 +11,7 @@
     ".shards": true,
     "**/.git": true,
     "**/.gitkeep": true,
-    "**/out": true
+    "**/out": true,
+    "**/pyg": false
   }
 }

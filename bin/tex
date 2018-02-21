@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+mkdir -p report/out
+tectonic report/index.tex --outdir report/out --synctex
