@@ -6,6 +6,7 @@
 
 - linux, macOS or Windows Subsystem for Linux*
 - [miniconda]
+- pygments
 - tectonic
 
 \* Tectonic does not natively support Windows currently
@@ -15,12 +16,12 @@
 1. Install [miniconda]
 2. `conda config --add channels conda-forge`
 3. `conda update --all`
-4. `conda install tectonic`
+4. `conda install pygments tectonic`
 
 ## Build
 
 ```shell
-tectonic report/index.tex --outdir report/out --synctex
+bin/report
 ```
 
 [miniconda]: https://conda.io/miniconda.html

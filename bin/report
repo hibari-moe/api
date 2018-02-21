@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Copy Pygment LaTeX styles
+bin/pyg
+tectonic report/index.tex --outdir report/out --synctex

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Copy Pygment LaTeX styles
+styles=$(bin/pyg_styles)
+echo -e "\e[34mgenerated\e[0m \e[90mstyles\e[0m"
+# Generate syntax highlighting for Crystal files
+for file in $(find src spec \( -name '*.cr' -o -name '*.sh' \) -print)
+do
+  DIR=$(dirname "${file}")
+  NAME=$(basename "${file}" .cr)
+  mkdir -p "report/pyg/$DIR"
+  echo "$styles" > "report/pyg/$DIR/$NAME.tex"
+  pygmentize -f latex "$file" >> "report/pyg/$DIR/$NAME.tex"
+  echo -e "\e[92mpygmented\e[0m \e[90m$DIR/\e[0m\e[93m$NAME.cr\e[0m"
+done
