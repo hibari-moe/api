@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 bin="$(dirname $0)"
 if bash "$bin/pyg"; then
-  bash "$bin/tex"
+  if bash "$bin/tex"; then
+    bash "$bin/texcount -inc -sum index.tex";
+  fi
 fi

@@ -16,10 +16,10 @@ The Web Service I will be consuming in this project is Kitsu\footnote{\url{https
 \section{What Will Be Exposed in My Web Service}
 \fxwarning{In progress}
 
-\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as separate API methods that share the same functionality.
+\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as separate API methods that share the same functionality and output.
 
 \begin{enumerate}
-  \item Computed statistics of media ratings
+  \item\label{computed-stats} Computed statistics of media ratings\fxnote{Maybe also Chebyshev's Theorem and Coefficient of Variation}
     \begin{enumerate}
       \item Count
       \item Mean
@@ -27,13 +27,13 @@ The Web Service I will be consuming in this project is Kitsu\footnote{\url{https
       \item Mode
       \item Variance
       \item Standard deviation
-      \item Raw rating frequency (key-value pair of \texttt{rating: occurance}
-      \fxnote{Maybe also Chebyshev's Theorem and Coefficient of Variation}
+      \item Raw rating frequency - key-value pair of \texttt{\{ rating: occurance \}}
     \end{enumerate}
   \item User libraries
     \begin{enumerate}
-      \item Computed statistics of media in the user's library (see above)
-      \item Computed statistics of media in the user's library filtered by category (see above)
+      \item Statistics of media in the user's library (see \ref{computed-stats}.)
+      \item Statistics of media in the user's library grouped by airing year (see \ref{computed-stats}.)
+      \item Statistics of media in the user's library grouped by category (see \ref{computed-stats}.)
       \item Top 10 media per category
       \item Total episodes/chapters seen
       \item Total episodes/chapters seen per status type (Currently Watching, Plan to Watch, Completed, On Hold and Dropped)
@@ -42,7 +42,8 @@ The Web Service I will be consuming in this project is Kitsu\footnote{\url{https
     \end{enumerate}
   \item Categories
     \begin{enumerate}
-      \item Computed statistics of media in a category (see above)
+      \item Statistics of media in a category (see \ref{computed-stats})
+      \item Statistics of media in a category grouped by airing year (see \ref{computed-stats}.)
     \end{enumerate}
   \item Media
     \begin{enumerate}

@@ -1,10 +1,10 @@
 lib/
 docs/
 .shards/
-db/
 sentry.lock
 api
 !api/
 report/out
 report/pyg
 *.pdf
+*.db
