@@ -30,5 +30,6 @@
     "**/.git": true,
     "**/.gitkeep": true,
     "**/out": true
-  }
+  },
+  "editor.wordWrap": "bounded"
 }

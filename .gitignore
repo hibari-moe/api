@@ -2,9 +2,11 @@ lib
 bin
 docs
 .shards
-*.db
-sentry.lock
 api
 !api/
 report/out/*
 !report/out/.gitkeep
+
+*.db
+*.pdf
+sentry.lock
