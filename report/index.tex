@@ -10,16 +10,6 @@
 % Image
 \usepackage{graphicx}
 \graphicspath{{img/}}
-% Table
-\usepackage{tabularx}
-\usepackage{ltablex}
-\usepackage{booktabs}
-%\newcolumntype{L}{>{\arraybackslash}X}
-%\newcolumntype{C}{>{\centering\arraybackslash}X}
-%\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
-\usepackage{multirow}
-\renewcommand{\arraystretch}{1.5}
-
 % Chapter, Part and Section numbering
 \renewcommand{\thepart}{}
 \renewcommand{\thechapter}{\Alph{chapter}}
@@ -29,12 +19,11 @@
 \usepackage{titlesec}
 \addto\captionsbritish{\renewcommand{\contentsname}{Summary}}
 \addto\captionsbritish{\renewcommand{\partname}{}}
-
 % Fonts
 \usepackage[T1]{fontenc}
 \usepackage[rm]{noto}
-%\usepackage{FiraMono}
 \usepackage{sourcecodepro}
+% Set monospace font in Verbatism blocks
 \makeatletter
 \defaultfontfeatures[\ttfamily]{
   Numbers = \sourcecodepro@figurestyle,
@@ -48,19 +37,13 @@
   BoldItalicFont = *-\sourcecodepro@regstyle It
 ]{SourceCodePro}
 \makeatother
-
 % Syntax Highlighting
 \usepackage{fancyvrb}
 \usepackage{xcolor}
 \usepackage{textcomp}
-
 % TODO notes
-% \fxnote
-% \fxwarning
-% \fxerror
-% \fxfatal
+% \fxnote, \fxwarning, \fxerror, \fxfatal
 \usepackage[status=draft,noinline,index,author=]{fixme}
-
 % Links
 \usepackage{hyperref}
 \hypersetup{
@@ -69,7 +52,7 @@
   citecolor={blue!50!black},
   urlcolor={blue!80!black}
 }
-
+% Spacing
 \setlength{\parindent}{0cm} % 0.2cm
 \setlength{\parskip}{1em}
 \hbadness=99999
@@ -81,9 +64,6 @@
 \author{
     James Harris\\
     \textit{21606555}
-    %\hfill\\
-    %Author\\
-    %\textit{ID}b
 }
 \date{
     \vfill\textbf\today\\
@@ -93,18 +73,15 @@
 \begin{document}
     \maketitle
     \tableofcontents
-
     \part{Research}
     \subfile{research/1-technology}
     \subfile{research/2-web-services}
     \subfile{research/3-rest}
     \subfile{research/4-examples}
-
     \part{Implementation}
     \subfile{implementation/1-proposal}
     \subfile{implementation/2-approach}
     \subfile{implementation/3-management}
     \subfile{implementation/4-development}
-
     \listoffixmes
 \end{document}
