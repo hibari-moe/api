@@ -1,9 +1,54 @@
 \section{Web Service Proposal}
 % 10 marks
-\subsection{External Web Services}
+\subsection{Project Name}
+
+Hibari API
+
+\subsection{Overview of the Project}
+
+The project will provide extra information \fxnote{statistics instead of information?} related to users and media on Kitsu, which would require dozens of expensive requests to generate client-side.
+
+\subsection{External Web Services to Be Consumed}
 
 Kitsu, an anime \& manga discovery and tracking service (similiar to IMDb): \url{https://kitsu.io}. It exposes a RESTful API (\url{https://kitsu.docs.apiary.io}) using the JSON:API\footnote{\url{http://jsonapi.org}} specification.
 
-\subsection{Proposed Data Consumption}
+\subsection{What Will Be Exposed in My Web Service}
 
-The web service I aim to implement should collect user's public library data on request and should process output various statistics based on what the user has seen, liked or hated per each category - e.g the average rating a user has given shows in a specific category. For example, user A rated shows in the Comedy category 6.84 out of 10 on average.
+\fxwarning{In progress}
+
+\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as seperate API methods.
+
+\begin{enumerate}
+  \item User Libraries
+  \begin{enumerate}
+    \item Average media rating per category, including:
+    \begin{enumerate}
+      \item Median
+      \item Variance
+      \item Standard deviation
+    \end{enumerate}
+    \item Top media per category
+  \end{enumerate}
+  \item Categories
+  \begin{enumerate}
+    \item Average rating of media in category, including:
+    \begin{enumerate}
+      \item Median
+      \item Variance
+      \item Standard deviation
+    \end{enumerate}
+    \item Total media in category
+  \end{enumerate}
+  \item Media
+  \begin{enumerate}
+    \item Rank in category (position and percentile)
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Initial Database Schema}
+
+\fxerror{Not started}
+
+\subsection{Initial Wireframes / UI Ideas}
+
+\fxerror{Not started}
