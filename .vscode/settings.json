@@ -32,5 +32,15 @@
     "**/out": true,
     "**/pyg": false
   },
-  "editor.wordWrap": "bounded"
+  "editor.wordWrap": "bounded",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "material-icon-theme.folders.associations": {
+    "report": "docs",
+    "implementation": "docs",
+    "pyg": "temp",
+    "bin": "config",
+    "hibari": "components",
+    "json_api": "components",
+    "kitsu": "components"
+  }
 }
