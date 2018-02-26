@@ -14,4 +14,6 @@ EOF
 #    create table userStats (userID text, )
 #EOF
 
-echo -e "\e[32mseeded database\e[0m"
+Reset='\033[0m'
+Green='\033[0;32m'
+echo -e "${Green}seeded database${Reset}"
