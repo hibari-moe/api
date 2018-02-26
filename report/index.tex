@@ -35,6 +35,24 @@
 \usepackage[rm]{noto}
 %\usepackage{FiraMono}
 \usepackage{sourcecodepro}
+\makeatletter
+\defaultfontfeatures[\ttfamily]{
+  Numbers = \sourcecodepro@figurestyle,
+  Scale = \SourceCodePro@scale,
+  Extension = .otf
+}
+\setmonofont[
+  UprightFont = *-\sourcecodepro@regstyle,
+  ItalicFont = *-\sourcecodepro@regstyle It,
+  BoldFont = *-\sourcecodepro@regstyle,
+  BoldItalicFont = *-\sourcecodepro@regstyle It
+]{SourceCodePro}
+\makeatother
+
+% Syntax Highlighting
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{textcomp}
 
 \setlength{\parindent}{0cm} % 0.2cm
 \setlength{\parskip}{1em}

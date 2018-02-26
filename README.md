@@ -2,7 +2,7 @@
 
 Work in progress API backend for extra Kitsu statistics for [Hibari](https://github.com/wopian/hibari)
 
-Initially developed as part of the *Open Source Systems* module at Bucks New University
+Initially developed as part of the *Web Services* module at Bucks New University
 
 ## Installation
 

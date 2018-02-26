@@ -1,35 +1,18 @@
 {
-  // Toolchain for native Windows support with MikTeX
-  "latex-workshop.latex.toolchain": [
-    {
-      "command": "xelatex",
-      "args": [
-        "--output-directory=out",
-        "--interaction=nonstopmode",
-        "%DOC%.tex"
-      ]
-    },
-    {
-      "command": "xelatex",
-      "args": [
-        "--output-directory=out",
-        "--interaction=nonstopmode",
-        "%DOC%.tex"
-      ]
-    }
-  ],
-  "latex-workshop.latex.clean.enabled": true,
+  "latex-workshop.latex.clean.enabled": false,
   "latex-workshop.latex.outputDir": "out",
-  "latex-workshop.latex.autoBuild.onSave.enabled": true,
-  "latex-workshop.latex.autoBuild.onTexChange.enabled": true,
+  "latex-workshop.latex.autoBuild.onSave.enabled": false,
+  "latex-workshop.latex.autoBuild.onTexChange.enabled": false,
   "spellright.groupDictionaries": false,
   "spellright.language": "en-GB",
   "latex-workshop.debug.showUpdateMessage": false,
   "files.exclude": {
     "lib": true,
+    ".shards": true,
     "**/.git": true,
     "**/.gitkeep": true,
-    "**/out": true
+    "**/out": true,
+    "**/pyg": false
   },
   "editor.wordWrap": "bounded"
 }
