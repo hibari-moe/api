@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 # Copy Pygment LaTeX styles
+
+if ! [ -x "$(command -v pygmentize)" ]; then
+  echo -e "\e[1m\e[91merror:\e[0m pygments is not installed. Install with \e[93mconda install pygments\e[0m"
+  exit 1
+fi
+
 styles=$(python3 bin/pyg_styles)
-echo -e "\e[34mgenerated\e[0m \e[90mstyles\e[0m"
+echo -e "\e[1m\e[34mgenerated:\e[0m \e[90mstyles\e[0m"
 # Generate syntax highlighting for Crystal files
 for file in $(find src spec \( -name '*.cr' -o -name '*.sh' \) -print)
 do
@@ -10,5 +16,5 @@ do
   mkdir -p "report/pyg/$DIR"
   echo "$styles" > "report/pyg/$DIR/$NAME.tex"
   pygmentize -f latex -O linenos=1,verboptions=numberblanklines=0 "$file" >> "report/pyg/$DIR/$NAME.tex"
-  echo -e "\e[92mpygmented\e[0m \e[90m$DIR/\e[0m\e[93m$NAME.cr\e[0m"
+  echo -e "\e[1m\e[92mpygmented:\e[0m \e[90m$DIR/\e[0m\e[93m$NAME.cr\e[0m"
 done

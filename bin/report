@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
-bash bin/pyg
-bash bin/tex
+#bash bin/pyg
+#bash bin/tex
+
+if bash bin/pyg; then
+  bash bin/tex
+fi

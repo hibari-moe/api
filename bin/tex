@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
+
+if ! [ -x "$(command -v tectonic)" ]; then
+  echo -e "\e[1m\e[91merror:\e[0m tectonic is not installed. Install with \e[93mconda install tectonic\e[0m"
+  exit 1
+fi
+
 mkdir -p report/out
 tectonic report/index.tex --outdir report/out --synctex
