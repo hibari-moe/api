@@ -36,6 +36,7 @@
   "material-icon-theme.hidesExplorerArrows": true,
   "material-icon-theme.folders.associations": {
     "report": "docs",
+    "research": "docs",
     "implementation": "docs",
     "pyg": "temp",
     "bin": "config",
