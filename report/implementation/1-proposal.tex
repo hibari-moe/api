@@ -10,39 +10,39 @@ The project will provide extra information \fxnote{statistics instead of informa
 
 \subsection{External Web Services to Be Consumed}
 
-Kitsu, an anime \& manga discovery and tracking service (similiar to IMDb): \url{https://kitsu.io}. It exposes a RESTful API (\url{https://kitsu.docs.apiary.io}) using the JSON:API\footnote{\url{http://jsonapi.org}} specification.
+Kitsu, an anime \& manga discovery and tracking service (similar to IMDb): \url{https://kitsu.io}. It exposes a RESTful API (\url{https://kitsu.docs.apiary.io}) using the JSON:API\footnote{\url{http://jsonapi.org}} specification.
 
 \subsection{What Will Be Exposed in My Web Service}
 
 \fxwarning{In progress}
 
-\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as seperate API methods.
+\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as separate API methods.
 
 \begin{enumerate}
   \item User Libraries
-  \begin{enumerate}
-    \item Average media rating per category, including:
     \begin{enumerate}
-      \item Median
-      \item Variance
-      \item Standard deviation
+      \item Average media rating per category, including:
+        \begin{enumerate}
+          \item Median
+          \item Variance
+          \item Standard deviation
+        \end{enumerate}
+      \item Top media per category
     \end{enumerate}
-    \item Top media per category
-  \end{enumerate}
   \item Categories
-  \begin{enumerate}
-    \item Average rating of media in category, including:
     \begin{enumerate}
-      \item Median
-      \item Variance
-      \item Standard deviation
+      \item Average rating of media in category, including:
+        \begin{enumerate}
+          \item Median
+          \item Variance
+          \item Standard deviation
+        \end{enumerate}
+      \item Total media in category
     \end{enumerate}
-    \item Total media in category
-  \end{enumerate}
   \item Media
-  \begin{enumerate}
-    \item Rank in category (position and percentile)
-  \end{enumerate}
+    \begin{enumerate}
+      \item Rank in category (position and percentile)
+    \end{enumerate}
 \end{enumerate}
 
 \subsection{Initial Database Schema}

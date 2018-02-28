@@ -47,6 +47,7 @@
 % Detect footnotes split into next page
 \usepackage{fnbreak}
 % Links
+\usepackage{bookmark}
 \usepackage{hyperref}
 \hypersetup{
   colorlinks,
@@ -73,7 +74,9 @@
     Buckinghamshire New University
 }
 \begin{document}
+    \pagenumbering{gobble}
     \maketitle
+    \pagenumbering{arabic}
     \tableofcontents
     \part{Research}
     \subfile{research/1-technology}
