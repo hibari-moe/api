@@ -1,8 +1,11 @@
 {
   "latex-workshop.latex.toolchain": [
     {
-      "command": "workshop.cmd",
-      "args": []
+      "command": "bash",
+      "args": [
+        "-i",
+        "../bin/report"
+      ]
     }
   ],
   "latex-workshop.latex.outputDir": "out",
