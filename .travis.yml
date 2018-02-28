@@ -11,7 +11,10 @@ install:
     conda config --add channels conda-forge;
     conda config --set always_yes yes;
   fi
-- conda install pygments tectonic && conda update --all
+- conda update -n base conda
+- if ! command -v pygmentize > /dev/null; then conda install pygments; fi
+- if ! command -v tectonic > /dev/null; then conda install tectonic; fi
+- conda update --all
 script:
 - bash bin/deps
 - bash bin/spec
