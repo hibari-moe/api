@@ -1,4 +1,6 @@
 % !TeX program = xelatex
+% Chicago Style Guide
+% https://titlecaseconverter.com/
 \documentclass{report}
 % General
 \usepackage[british]{babel}
@@ -10,15 +12,24 @@
 % Image
 \usepackage{graphicx}
 \graphicspath{{img/}}
+% Non-float figure captioning
+\usepackage[hang,small,bf]{caption}
 % Chapter, Part and Section numbering
-\renewcommand{\thepart}{}
-\renewcommand{\thechapter}{\Alph{chapter}}
-\renewcommand{\thesection}{\arabic{section}}
 \usepackage{tocloft}
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 \usepackage{titlesec}
-\addto\captionsbritish{\renewcommand{\contentsname}{Summary}}
-\addto\captionsbritish{\renewcommand{\partname}{}}
+\renewcommand{\thepart}{\Alph{part}}
+\addto\captionsbritish{\renewcommand{\partname}{Part}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\addto\captionsbritish{\renewcommand{\chaptername}{Section}}
+\titleformat{\chapter}[display]
+{\centering\normalfont\Large\bfseries}{\chaptername\ \thechapter}{0.8em}{\LARGE}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\addto\captionsbritish{\renewcommand{\contentsname}{\hfill\bfseries\LARGE Summary\hfill}}\addto\captionsbritish{\renewcommand{\listfigurename}{\hfill\bfseries\LARGE List of Figures}}
+\addto\captionsbritish{\renewcommand{\listtablename}{\hfill\bfseries\LARGE List of Tables}}
+\addto\captionsbritish{\renewcommand{\cftaftertoctitle}{\hfill}}
+\addto\captionsbritish{\renewcommand{\cftafterloftitle}{\hfill}}
+\addto\captionsbritish{\renewcommand{\cftafterlottitle}{\hfill}}
+% \renewcommand*{\thefootnote}{\textbf{\arabic{footnote}}}
 % Fonts
 \usepackage[T1]{fontenc}
 \usepackage[rm]{noto}
@@ -57,37 +68,24 @@
   urlcolor={blue!80!black},
 }
 % Spacing
-\setlength{\parindent}{0cm} % 0.2cm
+\setlength{\parindent}{0em} % 0.2cm
 \setlength{\parskip}{1em}
-\hbadness=99999
-\title{
-  \Large CO565\\
-  Web Services\vspace*{.65cm}\\
-  \huge Coursework One\vfill
-}
-\author{
-  James Harris\\
-  \textit{21606555}
-}
-\date{
-  \vfill\textbf\today\\
-  \vspace*{.75cm}\textit{Computing \& Web Development}\\
-  Buckinghamshire New University
-}
+\setlength{\footnotesep}{1.1em}
+\makeatletter
+  \renewcommand\@makefntext[1]{%
+  \hspace*{-2em}
+  \parindent 0em
+  \noindent
+  \hb@xt@1.8em{\hss %  There's the option of putting \hss before
+  \@thefnmark\hspace{0.8em}}%       or after \@thefnmark, aligning the footnote
+  #1}%                  marks to the right or to the left, respectively
+\makeatother
+\hbadness=10000
+\hfuzz=50pt
 \begin{document}
-    \pagenumbering{gobble}
-    \maketitle
-    \pagenumbering{arabic}
-    \tableofcontents
-    \part{Research}
-    \subfile{research/1-technology}
-    \subfile{research/2-web-services}
-    \subfile{research/3-rest}
-    \subfile{research/4-examples}
-    \part{Implementation}
-    \subfile{implementation/1-proposal}
-    \subfile{implementation/2-approach}
-    \subfile{implementation/3-management}
-    \subfile{implementation/4-development}
+    \include{frontmatter/cover}
+    \include{frontmatter/toc}
+    \include{1-research/research}
+    \include{2-implementation/implementation}
     \listoffixmes
 \end{document}
