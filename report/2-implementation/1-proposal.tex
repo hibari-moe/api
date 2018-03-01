@@ -15,28 +15,33 @@ The Web Service I will be consuming in this project is Kitsu\footnote{\url{https
 \section{What Will Be Exposed in My Web Service}
 \fxwarning{In progress}
 
-\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as separate API methods.
+\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as separate API methods that share the same functionality.
 
 \begin{enumerate}
-  \item User Libraries
+  \item Computed statistics of media ratings
     \begin{enumerate}
-      \item Average media rating per category, including:
-        \begin{enumerate}
-          \item Median
-          \item Variance
-          \item Standard deviation
-        \end{enumerate}
-      \item Top media per category
+      \item Count
+      \item Mean
+      \item Median
+      \item Mode
+      \item Variance
+      \item Standard deviation
+      \item Raw rating frequency (key-value pair of \texttt{rating: occurance}
+      \fxnote{Maybe also Chebyshev's Theorem and Coefficient of Variation}
+    \end{enumerate}
+  \item User libraries
+    \begin{enumerate}
+      \item Computed statistics of media in the user's library (see above)
+      \item Computed statistics of media in the user's library filtered by category (see above)
+      \item Top 10 media per category
+      \item Total episodes/chapters seen
+      \item Total episodes/chapters seen per status type (Currently Watching, Plan to Watch, Completed, On Hold and Dropped)
+      \item Total episodes/chapters not seen
+      \item Total episodes/chapters not seen per status type
     \end{enumerate}
   \item Categories
     \begin{enumerate}
-      \item Average rating of media in category, including:
-        \begin{enumerate}
-          \item Median
-          \item Variance
-          \item Standard deviation
-        \end{enumerate}
-      \item Total media in category
+      \item Computed statistics of media in a category (see above)
     \end{enumerate}
   \item Media
     \begin{enumerate}
