@@ -12,7 +12,5 @@ if ! [ -x "$(command -v tectonic)" ]; then
 fi
 
 git rev-parse --short HEAD > "$report/pyg/commit-hash.tex"
-git rev-list --count HEAD > "$report/pyg/commit-count.tex"
-
 mkdir -p "$report/out"
 tectonic "$report/index.tex" --outdir "$report/out" --synctex --chatter minimal --print
