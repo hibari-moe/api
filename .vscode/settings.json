@@ -20,7 +20,7 @@
     ".shards": true,
     "**/.git": true,
     "**/.gitkeep": true,
-    "**/out": false,
+    "**/out": true,
     "**/pyg": false
   },
   "editor.wordWrap": "bounded",
