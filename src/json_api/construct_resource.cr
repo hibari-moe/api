@@ -1,4 +1,4 @@
-module JsonAPI
+module Hibari::JsonAPI
   # Creates the JSON:API resource object
   #
   # Returns the following JSON structure:

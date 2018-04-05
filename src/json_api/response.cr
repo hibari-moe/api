@@ -1,4 +1,4 @@
-module JsonAPI
+module Hibari::JsonAPI
   # Creates the JSON:API response object
   def response(col_names, rs)
     JSON.build do |json|

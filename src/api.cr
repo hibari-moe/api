@@ -25,7 +25,7 @@ serve_static false
 gzip true
 
 module Hibari
-  extend Errors
+  extend Hibari::Errors
 
   before_all do |env|
     headers env, HEADERS
@@ -39,7 +39,7 @@ module Hibari
     resource = env.params.url["resource"]
     query = env.params.query
 
-    Kitsu.get(resource, query).to_json
+    Hibari::Kitsu.get(resource, query).to_json
   end
 
   get "/:table_name" do |env|
@@ -49,7 +49,7 @@ module Hibari
     else
       sql = "select * from #{table_name}"
       db.query sql do |rs|
-        JsonAPI.response rs.column_names, rs
+        Hibari::JsonAPI.response rs.column_names, rs
       end
     end
   end
@@ -62,7 +62,7 @@ module Hibari
       env.response.status_code = 404
     else
       db.query "select * from #{table_name} where id = ?", id do |rs|
-        JsonAPI.response rs.column_names, rs
+        Hibari::JsonAPI.response rs.column_names, rs
       end
     end
   end

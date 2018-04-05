@@ -1,7 +1,7 @@
 require "../spec_helper"
 
-describe JsonAPI do
+describe Hibari::JsonAPI do
   it "uses the JSON:API content type" do
-    JsonAPI::CONTENT_TYPE.should eq "application/vnd.api+json"
+    Hibari::JsonAPI::CONTENT_TYPE.should eq "application/vnd.api+json"
   end
 end

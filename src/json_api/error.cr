@@ -1,4 +1,4 @@
-module JsonAPI
+module Hibari::JsonAPI
   def error(status, title, detail = title)
     {
       errors: [
