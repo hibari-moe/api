@@ -8,9 +8,8 @@ jobs:
   include:
     - stage: compile
       script: echo "Compiling Crystal"
-    - stage: test
-      script: bin/travis_crystal
-      script: bin/travis_latex
+    - script: bin/travis_crystal
+    - script: bin/travis_latex
     - stage: deploy crystal docs
       script: skip
       deploy:
