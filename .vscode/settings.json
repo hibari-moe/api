@@ -1,6 +1,7 @@
 {
-  "latex-workshop.latex.toolchain": [
+  "latex-workshop.latex.tools": [
     {
+      "name": "tectonic",
       "command": "bash",
       "args": [
         "-i",
@@ -8,6 +9,15 @@
       ]
     }
   ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Build LaTeX",
+      "tools": [
+        "tectonic"
+      ]
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outputDir": "out",
   "latex-workshop.latex.clean.enabled": false,
   "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
@@ -20,8 +30,8 @@
     ".shards": true,
     "**/.git": true,
     "**/.gitkeep": true,
-    "**/out": false,
-    "**/pyg": false
+    "**/out": true,
+    "report/pyg": true
   },
   "editor.wordWrap": "bounded",
   "material-icon-theme.hidesExplorerArrows": true,
