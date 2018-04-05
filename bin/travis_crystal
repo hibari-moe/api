@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-bin="$(dirname $0)"
-bash "$bin/deps"
-bash "$bin/spec"
-bash "$bin/docs"
