@@ -9,13 +9,12 @@ install:
 - if ! command -v conda > /dev/null; then
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     bash miniconda.sh -b -p $HOME/miniconda -u;
-    conda config --add channels conda-forge;
-    conda config --set always_yes yes;
   fi
-- conda update -n base conda
+- conda config --add channels conda-forge;
+- conda config --set always_yes yes --set channel_priority no;
 - if ! command -v pygmentize > /dev/null; then conda install pygments; fi
 - if ! command -v tectonic > /dev/null; then conda install tectonic; fi
-- conda update --all
+- conda update conda --all
 script:
 - bash bin/deps
 - bash bin/spec
