@@ -1,6 +1,6 @@
-alias NotSupported = Char | JSON::Any
-
 module Hibari::JsonAPI
+  alias NotSupported = Char | JSON::Any
+
   # Creates the fields of JSON:API responses
   #
   # Returns the following JSON structures:
