@@ -6,8 +6,11 @@ cache:
   - report/pyg
 jobs:
   include:
-    - script: bin/travis_crystal
-    - script: bin/travis_latex
+    - stage: build
+      script: echo "Building Crystal"
+    - stage: test
+      script: bin/travis_crystal
+      script: bin/travis_latex
     - stage: deploy crystal docs
       script: skip
       deploy:
