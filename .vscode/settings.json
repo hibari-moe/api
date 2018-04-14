@@ -2,10 +2,9 @@
   "latex-workshop.latex.tools": [
     {
       "name": "tectonic",
-      "command": "bash",
+      "command": "node",
       "args": [
-        "-i",
-        "../bin/report"
+        "../bin/latex_workshop_hotfix"
       ]
     }
   ],
