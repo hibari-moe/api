@@ -2,6 +2,6 @@
 bin="$(dirname $0)"
 if bash "$bin/pyg"; then
   if bash "$bin/tex"; then
-    bash "$bin/texcount -inc -sum index.tex";
+    bash -c "$bin/texcount -merge -sum -total -dir report/index.tex";
   fi
 fi
