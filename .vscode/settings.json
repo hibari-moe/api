@@ -17,6 +17,15 @@
         "-i",
         "../bin/tex"
       ]
+    },
+    {
+      "name": "texcount",
+      "command": "node",
+      "args": [
+        "../bin/latex_workshop_hotfix",
+        "-i",
+        "../bin/texcount -inc -sum index.tex"
+      ]
     }
   ],
   "latex-workshop.latex.recipes": [
@@ -24,7 +33,8 @@
       "name": "Build LaTeX",
       "tools": [
         "pygmentise",
-        "tectonic"
+        "tectonic",
+        "texcount"
       ]
     }
   ],
