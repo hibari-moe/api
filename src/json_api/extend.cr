@@ -1,3 +1,3 @@
-module JsonAPI
+module Hibari::JsonAPI
   extend self
 end

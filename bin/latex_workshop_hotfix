@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+let{spawn}=require('child_process'),c=spawn('bash',process.argv.slice(2))
+c.stdout.pipe(process.stdout)
+c.stderr.pipe(process.stderr)
+c.stdin.end()

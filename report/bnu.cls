@@ -10,9 +10,12 @@
 \RequirePackage{subfiles}
 \RequirePackage{enumitem}
 \RequirePackage[useregional]{datetime2}
-% Non-float figure captioning
-\RequirePackage[hang,small,bf]{caption}
+\RequirePackage{natbib}
+\RequirePackage[nottoc]{tocbibind}
+\bibliographystyle{agsm}
+\addto\captionsbritish{\renewcommand{\bibname}{References}}
 % Image
+\RequirePackage{float}
 \RequirePackage{graphicx}
 % Chapter, Part and Section numbering
 \RequirePackage{tocloft}
@@ -54,7 +57,7 @@
 \RequirePackage{textcomp}
 % TODO notes
 % \fxnote, \fxwarning, \fxerror, \fxfatal
-\RequirePackage[status=draft,noinline,index,author=]{fixme}
+\RequirePackage[status=draft,noinline,author=]{fixme}
 \fxusetheme{color}
 % Detect footnotes split into next page
 \RequirePackage{fnbreak}
@@ -67,10 +70,9 @@
   citecolor={blue!50!black},
   urlcolor={blue!80!black},
 }
+% Non-float figure captioning
+\RequirePackage{caption}
 % Spacing
-\setlength{\parindent}{0em} % 0.2cm
-\setlength{\parskip}{1em}
-\setlength{\footnotesep}{1.1em}
 \makeatletter
   \renewcommand\@makefntext[1]{%
   \hspace*{-2em}
@@ -80,5 +82,18 @@
   \@thefnmark\hspace{0.8em}}%       or after \@thefnmark, aligning the footnote
   #1}%                  marks to the right or to the left, respectively
 \makeatother
+\linespread{1.1}
+%\setlength{\parindent}{0em} % 0.2cm
+\setlength{\parskip}{1em}
+\setlength{\footnotesep}{1.1em}
 \hbadness=10000
 \hfuzz=50pt
+
+% Module Code, Module Name
+\newcommand{\module}[2]{\Large#1\\#2\\}
+% Coursework Title
+\newcommand{\coursework}[1]{\vspace*{.65cm}\huge#1\\\vfill}
+% Student IDs
+\newcommand{\studentID}[1]{\textit{#1}}
+% Course, University
+\newcommand{\course}[2]{\vfill\textbf\today\\\vspace*{.75cm}\textit{#1}\\#2}

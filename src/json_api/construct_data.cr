@@ -1,4 +1,4 @@
-module JsonAPI
+module Hibari::JsonAPI
   # Creates the data array of the JSON:API response
   #
   # Returns the following JSON structure:

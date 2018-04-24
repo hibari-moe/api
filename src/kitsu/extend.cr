@@ -1,3 +1,3 @@
-module Kitsu
+module Hibari::Kitsu
   extend self
 end
