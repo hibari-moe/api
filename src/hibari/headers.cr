@@ -5,8 +5,6 @@ module Hibari
     "Strict-Transport-Security" => "max-age=63072000; includeSubDomains; preload",
     "Content-Security-Policy" => "default-src 'none'",
     "Cache-Control" => "max-age=900",
-    "Server" => "api.hibari.moe",
-    "X-Powered-By" => "api.hibari.moe",
     "X-Frame-Options" => "SAMEORIGIN",
     "X-XSS-Protection" => "1; mode=block",
     "X-Content-Type-Options" => "nosniff",
