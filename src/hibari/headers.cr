@@ -8,6 +8,6 @@ module Hibari
     "X-Frame-Options" => "SAMEORIGIN",
     "X-XSS-Protection" => "1; mode=block",
     "X-Content-Type-Options" => "nosniff",
-    "Referrer-Policy" => "origin-when-cross-origin, strict-origin-when-cross-origin"
+    "Referrer-Policy" => "strict-origin-when-cross-origin"
   }
 end
