@@ -1,10 +1,11 @@
 require "kemal"
 require "sentry-run"
 require "json"
-require "sqlite3"
+require "./repo/*" # Database connections
 require "./hibari/*"
 require "./json_api/*"
 require "./kitsu/*"
+require "./routes/*"
 require "./errors"
 
 # Live Reload Config
@@ -16,56 +17,14 @@ process = Sentry.config(
   should_build: true
 )
 
-# SQLite3 Database
-db_url = "sqlite3://./db/sqlite3.db"
-db = DB.open db_url
-
 # Kemal Config
+# Kemal.config.port = 3001
 serve_static false
-gzip true
+gzip = true
 
 module Hibari
   extend Hibari::Errors
-
-  before_all do |env|
-    headers env, HEADERS
-  end
-
-  get "/" do |env|
-    table_names(db).to_json
-  end
-
-  get "/kitsu/:resource" do |env|
-    resource = env.params.url["resource"]
-    query = env.params.query
-
-    Hibari::Kitsu.get(resource, query).to_json
-  end
-
-  get "/:table_name" do |env|
-    table_name = env.params.url["table_name"]
-    unless table_names(db).includes? table_name
-      env.response.status_code = 404
-    else
-      sql = "select * from #{table_name}"
-      db.query sql do |rs|
-        Hibari::JsonAPI.response rs.column_names, rs
-      end
-    end
-  end
-
-  get "/:table_name/:id" do |env|
-    table_name = env.params.url["table_name"]
-    id = env.params.url["id"]
-
-    unless table_names(db).includes? table_name
-      env.response.status_code = 404
-    else
-      db.query "select * from #{table_name} where id = ?", id do |rs|
-        Hibari::JsonAPI.response rs.column_names, rs
-      end
-    end
-  end
+  extend Hibari::Routes
 
   if ENV.has_key? "KEMAL_ENV"
     Kemal.run
@@ -75,5 +34,3 @@ module Hibari
     end
   end
 end
-
-db.close
