@@ -3,8 +3,8 @@
 
 CREATE TABLE IF NOT EXISTS users (
   'id' INTEGER NOT NULL PRIMARY KEY,
-  'created_at' DATETIME,
-  'updated_at' DATETIME
+  'created_at' TEXT,
+  'updated_at' TEXT
 );
 
 CREATE TABLE IF NOT EXISTS anime_library_entries (
@@ -12,23 +12,23 @@ CREATE TABLE IF NOT EXISTS anime_library_entries (
   'anime_id' INTEGER REFERENCES anime('id'),
   'status' INTEGER,
   'rating' INTEGER,
-  'created_at' DATETIME,
-  'updated_at' DATETIME
+  'created_at' TEXT,
+  'updated_at' TEXT
 );
 
 CREATE TABLE IF NOT EXISTS user_anime_library_entries (
   'user_id' INTEGER REFERENCES users('id'),
   'anime_library_entry_id' INTEGER REFERENCES anime_library_entries('id'),
-  'created_at' DATETIME,
-  'updated_at' DATETIME
+  'created_at' TEXT,
+  'updated_at' TEXT
 );
 
 CREATE TABLE IF NOT EXISTS anime (
   'id' INTEGER NOT NULL PRIMARY KEY,
   'status' INTEGER,
-  'start_date' DATETIME,
-  'created_at' DATETIME,
-  'updated_at' DATETIME
+  'start_date' TEXT,
+  'created_at' TEXT,
+  'updated_at' TEXT
 );
 
 CREATE TABLE IF NOT EXISTS anime_ratings (
@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS anime_ratings (
   'mode' INTEGER,
   'variance' INTEGER,
   'standard_deviation' INTEGER,
-  'created_at' DATETIME,
-  'updated_at' DATETIME
+  'created_at' TEXT,
+  'updated_at' TEXT
 );
 
 -- +micrate Down

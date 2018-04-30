@@ -1,7 +1,12 @@
 module Repo
   class User < Crecto::Model
+    set_created_at_field nil
+    set_updated_at_field nil
+
     schema "users" do
       field :name, String
+      field :updated_at, String
+      field :created_at, String
       has_many :anime_library_entries, AnimeLibraryEntry, through: :user_anime_library_entries
     end
   end
