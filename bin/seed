@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
+bin="$(dirname $0)"
+seed='db/seed'
+db='db/sqlite3.db'
+
 mkdir -p db
 rm -rf "db/sqlite3.db"
-sqlite3 "db/sqlite3.db" <<EOF
-    create table contacts (id text, name text, age integer, data blob);
 
-    insert into contacts (id, name, age, data) values ('1', 'John Doe', 30, X'53514C697465');
-    insert into contacts (id, name, age, data) values ('2', 'Jane Doe', 32, X'6574694C5153');
-EOF
+$bin/micrate up
 
-#sqlite "${0%/*}/sqlite3.db" <<EOF
-#    create table users (id text, slug text);
-#    create table userStats (userID text, )
-#EOF
+cat $seed/users.sql | sqlite3 $db
+
+cat $seed/anime.sql | sqlite3 $db
+
+cat $seed/anime_library_entries.sql | sqlite3 $db
 
 reset='\033[0m'
 green='\033[0;32m'
