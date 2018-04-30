@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/wopian/hibari-api">
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <title>Repo::Anime - github.com/wopian/hibari-api</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="../index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class="parent " data-id="github.com/wopian/hibari-api/Hibari" data-name="hibari">
+      <a href="../Hibari.html">Hibari</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Hibari/Errors" data-name="hibari::errors">
+      <a href="../Hibari/Errors.html">Errors</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/wopian/hibari-api/Hibari/JsonAPI" data-name="hibari::jsonapi">
+      <a href="../Hibari/JsonAPI.html">JsonAPI</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Hibari/JsonAPI/NotSupported" data-name="hibari::jsonapi::notsupported">
+      <a href="../Hibari/JsonAPI/NotSupported.html">NotSupported</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Hibari/Kitsu" data-name="hibari::kitsu">
+      <a href="../Hibari/Kitsu.html">Kitsu</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Hibari/Routes" data-name="hibari::routes">
+      <a href="../Hibari/Routes.html">Routes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/wopian/hibari-api/Repo" data-name="repo">
+      <a href="../Repo.html">Repo</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/wopian/hibari-api/Repo/Anime" data-name="repo::anime">
+      <a href="../Repo/Anime.html">Anime</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Repo/AnimeLibraryEntry" data-name="repo::animelibraryentry">
+      <a href="../Repo/AnimeLibraryEntry.html">AnimeLibraryEntry</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Repo/AnimeRating" data-name="repo::animerating">
+      <a href="../Repo/AnimeRating.html">AnimeRating</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Repo/User" data-name="repo::user">
+      <a href="../Repo/User.html">User</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Repo/UserAnimeLibraryEntry" data-name="repo::useranimelibraryentry">
+      <a href="../Repo/UserAnimeLibraryEntry.html">UserAnimeLibraryEntry</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Repo::Anime
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Repo/Anime.html">Repo::Anime</a></li><li class="superclass">Crecto::Model</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+  <h2>Included Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type">Crecto::Schema</li>
+  
+    <li class="other-type">Crecto::Schema::BelongsTo</li>
+  
+    <li class="other-type">Crecto::Schema::HasMany</li>
+  
+    <li class="other-type">Crecto::Schema::HasOne</li>
+  
+    <li class="other-type">DB::Mappable</li>
+  
+  </ul>
+
+
+
+  <h2>Extended Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type">Crecto::Changeset(<a href="../Repo/Anime.html">Repo::Anime</a>)</li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">repo/models/models.cr</a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="CRECTO_DESTROY_ASSOCIATIONS">
+        <strong>CRECTO_DESTROY_ASSOCIATIONS</strong> = <code><span class="t">Array</span>(<span class="t">Symbol</span>).<span class="k">new</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CRECTO_ENUM_FIELDS">
+        <strong>CRECTO_ENUM_FIELDS</strong> = <code><span class="o">[]</span> <span class="k">of</span> <span class="t">NamedTuple</span>(name: <span class="t">Symbol</span>, <span class="k">type</span>: <span class="t">String</span>, column_name: <span class="t">String</span>, column_type: <span class="t">String</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CRECTO_FIELDS">
+        <strong>CRECTO_FIELDS</strong> = <code>[{name: <span class="n">:status</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:start_date</span>, <span class="k">type</span>: <span class="t">Time</span>}] <span class="k">of</span> <span class="t">NamedTuple</span>(name: <span class="t">Symbol</span>, <span class="k">type</span>: <span class="t">String</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CRECTO_MODEL_FIELDS">
+        <strong>CRECTO_MODEL_FIELDS</strong> = <code><span class="o">[]</span> <span class="k">of</span> <span class="t">NamedTuple</span>(name: <span class="t">Symbol</span>, <span class="k">type</span>: <span class="t">String</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CRECTO_NULLIFY_ASSOCIATIONS">
+        <strong>CRECTO_NULLIFY_ASSOCIATIONS</strong> = <code><span class="t">Array</span>(<span class="t">Symbol</span>).<span class="k">new</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CRECTO_VALID_FIELD_OPTIONS">
+        <strong>CRECTO_VALID_FIELD_OPTIONS</strong> = <code>[<span class="n">:primary_key</span>, <span class="n">:virtual</span>, <span class="n">:default</span>]</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CRECTO_VALID_FIELD_TYPES">
+        <strong>CRECTO_VALID_FIELD_TYPES</strong> = <code>[<span class="t">String</span>, <span class="t">Int64</span>, <span class="t">Int32</span>, <span class="t">Int16</span>, <span class="t">Float32</span>, <span class="t">Float64</span>, <span class="t">Bool</span>, <span class="t">Time</span>, <span class="t">Int32</span> <span class="o">|</span> <span class="t">Int64</span>, <span class="t">Float32</span> <span class="o">|</span> <span class="t">Float64</span>, <span class="t">Json</span>, <span class="t">PkeyValue</span>, <span class="t">Array</span>(<span class="t">String</span>), <span class="t">Array</span>(<span class="t">Int64</span>), <span class="t">Array</span>(<span class="t">Int32</span>), <span class="t">Array</span>(<span class="t">Int16</span>), <span class="t">Array</span>(<span class="t">Float32</span>), <span class="t">Array</span>(<span class="t">Float64</span>), <span class="t">Array</span>(<span class="t">Bool</span>), <span class="t">Array</span>(<span class="t">Time</span>), <span class="t">Array</span>(<span class="t">Int32</span> <span class="o">|</span> <span class="t">Int64</span>), <span class="t">Array</span>(<span class="t">Float32</span> <span class="o">|</span> <span class="t">Float64</span>), <span class="t">Array</span>(<span class="t">Json</span>), <span class="t">Array</span>(<span class="t">PkeyValue</span>)]</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>macro constants</p>
+      </dd>
+      
+    
+  </dl>
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28__temp_119%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(__temp_119 : JSON::PullParser)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28__temp_107%3ADB%3A%3AResultSet%29-class-method" class="signature"><strong>.new</strong>(__temp_107 : DB::ResultSet)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#add_destroy_association%28a%29-class-method" class="signature"><strong>.add_destroy_association</strong>(a)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_nullify_association%28a%29-class-method" class="signature"><strong>.add_nullify_association</strong>(a)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#association_type_for_association%28association%3ASymbol%29-class-method" class="signature"><strong>.association_type_for_association</strong>(association : Symbol)</a>
+        
+          <div class="summary"><p>Get the association type for the association i.e.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changeset_fields-class-method" class="signature"><strong>.changeset_fields</strong></a>
+        
+          <div class="summary"><p>Class method to get the <code><a href="../Repo/Anime.html#changeset_fields-class-method">.changeset_fields</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at_field-class-method" class="signature"><strong>.created_at_field</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#destroy_associations-class-method" class="signature"><strong>.destroy_associations</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fields-class-method" class="signature"><strong>.fields</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#foreign_key_for_association%28klass%3ACrecto%3A%3AModel.class%29-class-method" class="signature"><strong>.foreign_key_for_association</strong>(klass : Crecto::Model.class)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#foreign_key_for_association%28association%3ASymbol%29%3ASymbol-class-method" class="signature"><strong>.foreign_key_for_association</strong>(association : Symbol) : Symbol</a>
+        
+          <div class="summary"><p>Get the foreign key for the association i.e.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#foreign_key_value_for_association%28association%3ASymbol%2Citem%29-class-method" class="signature"><strong>.foreign_key_value_for_association</strong>(association : Symbol, item)</a>
+        
+          <div class="summary"><p>Get the foreign key value from the relation object i.e.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_rs%28__temp_107%3ADB%3A%3AResultSet%29-class-method" class="signature"><strong>.from_rs</strong>(__temp_107 : DB::ResultSet)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#klass_for_association%28association%3ASymbol%29-class-method" class="signature"><strong>.klass_for_association</strong>(association : Symbol)</a>
+        
+          <div class="summary"><p>Get the Class for the assocation name i.e.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#nullify_associations-class-method" class="signature"><strong>.nullify_associations</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#primary_key_field-class-method" class="signature"><strong>.primary_key_field</strong></a>
+        
+          <div class="summary"><p>Return the primary key field as a String</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#primary_key_field_symbol-class-method" class="signature"><strong>.primary_key_field_symbol</strong></a>
+        
+          <div class="summary"><p>Return the primary key field as a Symbol</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set_value_for_association%28association%3ASymbol%2Citem%2Citems%29-class-method" class="signature"><strong>.set_value_for_association</strong>(association : Symbol, item, items)</a>
+        
+          <div class="summary"><p>Set the value for the association i.e.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#table_name-class-method" class="signature"><strong>.table_name</strong></a>
+        
+          <div class="summary"><p>Class method to get the table name</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#through_key_for_association%28association%3ASymbol%29%3ASymbol%3F-class-method" class="signature"><strong>.through_key_for_association</strong>(association : Symbol) : Symbol?</a>
+        
+          <div class="summary"><p>Get the through association symbol i.e.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at_field-class-method" class="signature"><strong>.updated_at_field</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#use_primary_key%3F-class-method" class="signature"><strong>.use_primary_key?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#validate%28message%3AString%2Cblock%3ARepo%3A%3AAnime-%3E_%29-class-method" class="signature"><strong>.validate</strong>(message : String, block : Repo::Anime -> _)</a>
+        
+          <div class="summary"><p>Validates generic block against an instance of the class</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#anime_ratings%3AAnimeRating-instance-method" class="signature"><strong>#anime_ratings</strong> : AnimeRating</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#anime_ratings%3D%28val%3AAnimeRating%3F%29-instance-method" class="signature"><strong>#anime_ratings=</strong>(val : AnimeRating?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#anime_ratings%3F%3AAnimeRating%3F-instance-method" class="signature"><strong>#anime_ratings?</strong> : AnimeRating?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%3ATime%3F-instance-method" class="signature"><strong>#created_at</strong> : Time?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%3D%28_created_at%3ATime%3F%29-instance-method" class="signature"><strong>#created_at=</strong>(_created_at : Time?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at_to_now-instance-method" class="signature"><strong>#created_at_to_now</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at_value-instance-method" class="signature"><strong>#created_at_value</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_changeset-instance-method" class="signature"><strong>#get_changeset</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3AInt32%7CInt64%7CString%7CNil-instance-method" class="signature"><strong>#id</strong> : Int32 | Int64 | String | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3D%28_id%3APkeyValue%3F%29-instance-method" class="signature"><strong>#id=</strong>(_id : PkeyValue?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#initial_values%3AHash%28Symbol%2CDbValue%29%3F-instance-method" class="signature"><strong>#initial_values</strong> : Hash(Symbol, DbValue)?</a>
+        
+          <div class="summary"><p>Instance properties</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#initial_values%3D%28initial_values%3AHash%28Symbol%2CDbValue%29%3F%29-instance-method" class="signature"><strong>#initial_values=</strong>(initial_values : Hash(Symbol, DbValue)?)</a>
+        
+          <div class="summary"><p>Instance properties</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pkey_value-instance-method" class="signature"><strong>#pkey_value</strong></a>
+        
+          <div class="summary"><p>Returns the value of the primary key field</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#start_date%3ATime%3F-instance-method" class="signature"><strong>#start_date</strong> : Time?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#start_date%21-instance-method" class="signature"><strong>#start_date!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#start_date%3D%28_start_date%3ATime%3F%29-instance-method" class="signature"><strong>#start_date=</strong>(_start_date : Time?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#status%3AInt32%7CInt64%7CString%7CNil-instance-method" class="signature"><strong>#status</strong> : Int32 | Int64 | String | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#status%21-instance-method" class="signature"><strong>#status!</strong></a>
+        
+          <div class="summary"><p>Builds fields' cast typed method</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#status%3D%28_status%3APkeyValue%3F%29-instance-method" class="signature"><strong>#status=</strong>(_status : PkeyValue?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_json%28json%3AJSON%3A%3ABuilder%29-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_query_hash%28include_virtual%3Dfalse%29-instance-method" class="signature"><strong>#to_query_hash</strong>(include_virtual = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Builds a hash from all <code><a href="../Repo/Anime.html#CRECTO_FIELDS">CRECTO_FIELDS</a></code> defined</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_from_hash%28hash%3AHash%28String%2CDbValue%29%29-instance-method" class="signature"><strong>#update_from_hash</strong>(hash : Hash(String, DbValue))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_primary_key%28val%29-instance-method" class="signature"><strong>#update_primary_key</strong>(val)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%3ATime%3F-instance-method" class="signature"><strong>#updated_at</strong> : Time?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%3D%28_updated_at%3ATime%3F%29-instance-method" class="signature"><strong>#updated_at=</strong>(_updated_at : Time?)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at_to_now-instance-method" class="signature"><strong>#updated_at_to_now</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at_value-instance-method" class="signature"><strong>#updated_at_value</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(__temp_119:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(__temp_119 : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28__temp_119%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(__temp_107:DB::ResultSet)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(__temp_107 : DB::ResultSet)
+
+        <a class="method-permalink" href="#new%28__temp_107%3ADB%3A%3AResultSet%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="add_destroy_association(a)-class-method">
+      <div class="signature">
+        
+        def self.<strong>add_destroy_association</strong>(a)
+
+        <a class="method-permalink" href="#add_destroy_association%28a%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add_nullify_association(a)-class-method">
+      <div class="signature">
+        
+        def self.<strong>add_nullify_association</strong>(a)
+
+        <a class="method-permalink" href="#add_nullify_association%28a%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="association_type_for_association(association:Symbol)-class-method">
+      <div class="signature">
+        
+        def self.<strong>association_type_for_association</strong>(association : Symbol)
+
+        <a class="method-permalink" href="#association_type_for_association%28association%3ASymbol%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get the association type for the association
+i.e. :posts => :has_many</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changeset_fields-class-method">
+      <div class="signature">
+        
+        def self.<strong>changeset_fields</strong>
+
+        <a class="method-permalink" href="#changeset_fields-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Class method to get the <code><a href="../Repo/Anime.html#changeset_fields-class-method">.changeset_fields</a></code></p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at_field-class-method">
+      <div class="signature">
+        
+        def self.<strong>created_at_field</strong>
+
+        <a class="method-permalink" href="#created_at_field-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="destroy_associations-class-method">
+      <div class="signature">
+        
+        def self.<strong>destroy_associations</strong>
+
+        <a class="method-permalink" href="#destroy_associations-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fields-class-method">
+      <div class="signature">
+        
+        def self.<strong>fields</strong>
+
+        <a class="method-permalink" href="#fields-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="foreign_key_for_association(klass:Crecto::Model.class)-class-method">
+      <div class="signature">
+        
+        def self.<strong>foreign_key_for_association</strong>(klass : Crecto::Model.class)
+
+        <a class="method-permalink" href="#foreign_key_for_association%28klass%3ACrecto%3A%3AModel.class%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="foreign_key_for_association(association:Symbol):Symbol-class-method">
+      <div class="signature">
+        
+        def self.<strong>foreign_key_for_association</strong>(association : Symbol) : Symbol
+
+        <a class="method-permalink" href="#foreign_key_for_association%28association%3ASymbol%29%3ASymbol-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get the foreign key for the association
+i.e. :posts => :user_id</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="foreign_key_value_for_association(association:Symbol,item)-class-method">
+      <div class="signature">
+        
+        def self.<strong>foreign_key_value_for_association</strong>(association : Symbol, item)
+
+        <a class="method-permalink" href="#foreign_key_value_for_association%28association%3ASymbol%2Citem%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get the foreign key value from the relation object
+i.e. :posts, post => post.user_id</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_rs(__temp_107:DB::ResultSet)-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_rs</strong>(__temp_107 : DB::ResultSet)
+
+        <a class="method-permalink" href="#from_rs%28__temp_107%3ADB%3A%3AResultSet%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="klass_for_association(association:Symbol)-class-method">
+      <div class="signature">
+        
+        def self.<strong>klass_for_association</strong>(association : Symbol)
+
+        <a class="method-permalink" href="#klass_for_association%28association%3ASymbol%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get the Class for the assocation name
+i.e. :posts => Post</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="nullify_associations-class-method">
+      <div class="signature">
+        
+        def self.<strong>nullify_associations</strong>
+
+        <a class="method-permalink" href="#nullify_associations-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="primary_key_field-class-method">
+      <div class="signature">
+        
+        def self.<strong>primary_key_field</strong>
+
+        <a class="method-permalink" href="#primary_key_field-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Return the primary key field as a String</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="primary_key_field_symbol-class-method">
+      <div class="signature">
+        
+        def self.<strong>primary_key_field_symbol</strong>
+
+        <a class="method-permalink" href="#primary_key_field_symbol-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Return the primary key field as a Symbol</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set_value_for_association(association:Symbol,item,items)-class-method">
+      <div class="signature">
+        
+        def self.<strong>set_value_for_association</strong>(association : Symbol, item, items)
+
+        <a class="method-permalink" href="#set_value_for_association%28association%3ASymbol%2Citem%2Citems%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Set the value for the association
+i.e. :posts, user, [posts] => user.posts = [posts]</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="table_name-class-method">
+      <div class="signature">
+        
+        def self.<strong>table_name</strong>
+
+        <a class="method-permalink" href="#table_name-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Class method to get the table name</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="through_key_for_association(association:Symbol):Symbol?-class-method">
+      <div class="signature">
+        
+        def self.<strong>through_key_for_association</strong>(association : Symbol) : Symbol?
+
+        <a class="method-permalink" href="#through_key_for_association%28association%3ASymbol%29%3ASymbol%3F-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Get the through association symbol
+i.e. :posts => :user_posts (if has_many through)</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at_field-class-method">
+      <div class="signature">
+        
+        def self.<strong>updated_at_field</strong>
+
+        <a class="method-permalink" href="#updated_at_field-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="use_primary_key?-class-method">
+      <div class="signature">
+        
+        def self.<strong>use_primary_key?</strong>
+
+        <a class="method-permalink" href="#use_primary_key%3F-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="validate(message:String,block:Repo::Anime-&gt;_)-class-method">
+      <div class="signature">
+        
+        def self.<strong>validate</strong>(message : String, block : <a href="../Repo/Anime.html">Repo::Anime</a> -> _)
+
+        <a class="method-permalink" href="#validate%28message%3AString%2Cblock%3ARepo%3A%3AAnime-%3E_%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Validates generic block against an instance of the class</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="anime_ratings:AnimeRating-instance-method">
+      <div class="signature">
+        
+        def <strong>anime_ratings</strong> : <a href="../Repo/AnimeRating.html">AnimeRating</a>
+
+        <a class="method-permalink" href="#anime_ratings%3AAnimeRating-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="anime_ratings=(val:AnimeRating?)-instance-method">
+      <div class="signature">
+        
+        def <strong>anime_ratings=</strong>(val : <a href="../Repo/AnimeRating.html">AnimeRating</a>?)
+
+        <a class="method-permalink" href="#anime_ratings%3D%28val%3AAnimeRating%3F%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="anime_ratings?:AnimeRating?-instance-method">
+      <div class="signature">
+        
+        def <strong>anime_ratings?</strong> : <a href="../Repo/AnimeRating.html">AnimeRating</a>?
+
+        <a class="method-permalink" href="#anime_ratings%3F%3AAnimeRating%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at:Time?-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at</strong> : Time?
+
+        <a class="method-permalink" href="#created_at%3ATime%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at=(_created_at:Time?)-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at=</strong>(_created_at : Time?)
+
+        <a class="method-permalink" href="#created_at%3D%28_created_at%3ATime%3F%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at_to_now-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at_to_now</strong>
+
+        <a class="method-permalink" href="#created_at_to_now-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at_value-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at_value</strong>
+
+        <a class="method-permalink" href="#created_at_value-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_changeset-instance-method">
+      <div class="signature">
+        
+        def <strong>get_changeset</strong>
+
+        <a class="method-permalink" href="#get_changeset-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:Int32|Int64|String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : Int32 | Int64 | String | Nil
+
+        <a class="method-permalink" href="#id%3AInt32%7CInt64%7CString%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(_id:PkeyValue?)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(_id : PkeyValue?)
+
+        <a class="method-permalink" href="#id%3D%28_id%3APkeyValue%3F%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="initial_values:Hash(Symbol,DbValue)?-instance-method">
+      <div class="signature">
+        
+        def <strong>initial_values</strong> : Hash(Symbol, DbValue)?
+
+        <a class="method-permalink" href="#initial_values%3AHash%28Symbol%2CDbValue%29%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Instance properties</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="initial_values=(initial_values:Hash(Symbol,DbValue)?)-instance-method">
+      <div class="signature">
+        
+        def <strong>initial_values=</strong>(initial_values : Hash(Symbol, DbValue)?)
+
+        <a class="method-permalink" href="#initial_values%3D%28initial_values%3AHash%28Symbol%2CDbValue%29%3F%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Instance properties</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pkey_value-instance-method">
+      <div class="signature">
+        
+        def <strong>pkey_value</strong>
+
+        <a class="method-permalink" href="#pkey_value-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the value of the primary key field</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="start_date:Time?-instance-method">
+      <div class="signature">
+        
+        def <strong>start_date</strong> : Time?
+
+        <a class="method-permalink" href="#start_date%3ATime%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="start_date!-instance-method">
+      <div class="signature">
+        
+        def <strong>start_date!</strong>
+
+        <a class="method-permalink" href="#start_date%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="start_date=(_start_date:Time?)-instance-method">
+      <div class="signature">
+        
+        def <strong>start_date=</strong>(_start_date : Time?)
+
+        <a class="method-permalink" href="#start_date%3D%28_start_date%3ATime%3F%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="status:Int32|Int64|String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>status</strong> : Int32 | Int64 | String | Nil
+
+        <a class="method-permalink" href="#status%3AInt32%7CInt64%7CString%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="status!-instance-method">
+      <div class="signature">
+        
+        def <strong>status!</strong>
+
+        <a class="method-permalink" href="#status%21-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Builds fields' cast typed method</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="status=(_status:PkeyValue?)-instance-method">
+      <div class="signature">
+        
+        def <strong>status=</strong>(_status : PkeyValue?)
+
+        <a class="method-permalink" href="#status%3D%28_status%3APkeyValue%3F%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_json</strong>(json : JSON::Builder)
+
+        <a class="method-permalink" href="#to_json%28json%3AJSON%3A%3ABuilder%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_query_hash(include_virtual=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_query_hash</strong>(include_virtual = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#to_query_hash%28include_virtual%3Dfalse%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Builds a hash from all <code><a href="../Repo/Anime.html#CRECTO_FIELDS">CRECTO_FIELDS</a></code> defined</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_from_hash(hash:Hash(String,DbValue))-instance-method">
+      <div class="signature">
+        
+        def <strong>update_from_hash</strong>(hash : Hash(String, DbValue))
+
+        <a class="method-permalink" href="#update_from_hash%28hash%3AHash%28String%2CDbValue%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_primary_key(val)-instance-method">
+      <div class="signature">
+        
+        def <strong>update_primary_key</strong>(val)
+
+        <a class="method-permalink" href="#update_primary_key%28val%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at:Time?-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at</strong> : Time?
+
+        <a class="method-permalink" href="#updated_at%3ATime%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at=(_updated_at:Time?)-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at=</strong>(_updated_at : Time?)
+
+        <a class="method-permalink" href="#updated_at%3D%28_updated_at%3ATime%3F%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at_to_now-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at_to_now</strong>
+
+        <a class="method-permalink" href="#updated_at_to_now-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at_value-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at_value</strong>
+
+        <a class="method-permalink" href="#updated_at_value-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
