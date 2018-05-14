@@ -25,11 +25,6 @@
       
         <ul>
   
-  <li class=" " data-id="github.com/wopian/hibari-api/Hibari/Errors" data-name="hibari::errors">
-      <a href="../Hibari/Errors.html">Errors</a>
-      
-    </li>
-  
   <li class="parent " data-id="github.com/wopian/hibari-api/Hibari/JsonAPI" data-name="hibari::jsonapi">
       <a href="../Hibari/JsonAPI.html">JsonAPI</a>
       
@@ -50,8 +45,18 @@
       
     </li>
   
-  <li class=" " data-id="github.com/wopian/hibari-api/Hibari/Routes" data-name="hibari::routes">
+  <li class="parent " data-id="github.com/wopian/hibari-api/Hibari/Routes" data-name="hibari::routes">
       <a href="../Hibari/Routes.html">Routes</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/wopian/hibari-api/Hibari/Routes/Errors" data-name="hibari::routes::errors">
+      <a href="../Hibari/Routes/Errors.html">Errors</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -150,7 +155,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">repo/models/models.cr</a>
+      <a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">repo/models/models.cr</a>
     
     <br/>
   
@@ -161,6 +166,11 @@
     <h2>Constant Summary</h2>
   
   <dl>
+    
+      <dt class="entry-const" id="CRECTO_CREATED_AT_FIELD">
+        <strong>CRECTO_CREATED_AT_FIELD</strong> = <code><span class="n">nil</span></code>
+      </dt>
+      
     
       <dt class="entry-const" id="CRECTO_DESTROY_ASSOCIATIONS">
         <strong>CRECTO_DESTROY_ASSOCIATIONS</strong> = <code><span class="t">Array</span>(<span class="t">Symbol</span>).<span class="k">new</span></code>
@@ -173,7 +183,7 @@
       
     
       <dt class="entry-const" id="CRECTO_FIELDS">
-        <strong>CRECTO_FIELDS</strong> = <code>[{name: <span class="n">:total</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:mean</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:median</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:mode</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:variance</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:standard_deviation</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:anime_id</span>, <span class="k">type</span>: <span class="t">PkeyValue</span>}] <span class="k">of</span> <span class="t">NamedTuple</span>(name: <span class="t">Symbol</span>, <span class="k">type</span>: <span class="t">String</span>)</code>
+        <strong>CRECTO_FIELDS</strong> = <code>[{name: <span class="n">:updated_at</span>, <span class="k">type</span>: <span class="t">String</span>}, {name: <span class="n">:created_at</span>, <span class="k">type</span>: <span class="t">String</span>}, {name: <span class="n">:total</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:mean</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:median</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:mode</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:variance</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:standard_deviation</span>, <span class="k">type</span>: <span class="t">Int32</span>}, {name: <span class="n">:anime_id</span>, <span class="k">type</span>: <span class="t">PkeyValue</span>}] <span class="k">of</span> <span class="t">NamedTuple</span>(name: <span class="t">Symbol</span>, <span class="k">type</span>: <span class="t">String</span>)</code>
       </dt>
       
     
@@ -184,6 +194,11 @@
     
       <dt class="entry-const" id="CRECTO_NULLIFY_ASSOCIATIONS">
         <strong>CRECTO_NULLIFY_ASSOCIATIONS</strong> = <code><span class="t">Array</span>(<span class="t">Symbol</span>).<span class="k">new</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CRECTO_UPDATED_AT_FIELD">
+        <strong>CRECTO_UPDATED_AT_FIELD</strong> = <code><span class="n">nil</span></code>
       </dt>
       
     
@@ -214,12 +229,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28__temp_154%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(__temp_154 : JSON::PullParser)</a>
+        <a href="#new%28__temp_150%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(__temp_150 : JSON::PullParser)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28__temp_132%3ADB%3A%3AResultSet%29-class-method" class="signature"><strong>.new</strong>(__temp_132 : DB::ResultSet)</a>
+        <a href="#new%28__temp_128%3ADB%3A%3AResultSet%29-class-method" class="signature"><strong>.new</strong>(__temp_128 : DB::ResultSet)</a>
         
       </li>
     
@@ -289,7 +304,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#from_rs%28__temp_132%3ADB%3A%3AResultSet%29-class-method" class="signature"><strong>.from_rs</strong>(__temp_132 : DB::ResultSet)</a>
+        <a href="#from_rs%28__temp_128%3ADB%3A%3AResultSet%29-class-method" class="signature"><strong>.from_rs</strong>(__temp_128 : DB::ResultSet)</a>
         
       </li>
     
@@ -395,12 +410,17 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#created_at%3ATime%3F-instance-method" class="signature"><strong>#created_at</strong> : Time?</a>
+        <a href="#created_at%3AString%3F-instance-method" class="signature"><strong>#created_at</strong> : String?</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#created_at%3D%28_created_at%3ATime%3F%29-instance-method" class="signature"><strong>#created_at=</strong>(_created_at : Time?)</a>
+        <a href="#created_at%21-instance-method" class="signature"><strong>#created_at!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%3D%28_created_at%3AString%3F%29-instance-method" class="signature"><strong>#created_at=</strong>(_created_at : String?)</a>
         
       </li>
     
@@ -530,8 +550,6 @@
       <li class="entry-summary">
         <a href="#total%21-instance-method" class="signature"><strong>#total!</strong></a>
         
-          <div class="summary"><p>Builds fields' cast typed method</p></div>
-        
       </li>
     
       <li class="entry-summary">
@@ -550,12 +568,19 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#updated_at%3ATime%3F-instance-method" class="signature"><strong>#updated_at</strong> : Time?</a>
+        <a href="#updated_at%3AString%3F-instance-method" class="signature"><strong>#updated_at</strong> : String?</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#updated_at%3D%28_updated_at%3ATime%3F%29-instance-method" class="signature"><strong>#updated_at=</strong>(_updated_at : Time?)</a>
+        <a href="#updated_at%21-instance-method" class="signature"><strong>#updated_at!</strong></a>
+        
+          <div class="summary"><p>Builds fields' cast typed method</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%3D%28_updated_at%3AString%3F%29-instance-method" class="signature"><strong>#updated_at=</strong>(_updated_at : String?)</a>
         
       </li>
     
@@ -688,17 +713,17 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="new(__temp_154:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_150:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_154 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_150 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new%28__temp_154%3AJSON%3A%3APullParser%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28__temp_150%3AJSON%3A%3APullParser%29-class-method">#</a>
       </div>
       
       <br/>
@@ -707,12 +732,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(__temp_132:DB::ResultSet)-class-method">
+    <div class="entry-detail" id="new(__temp_128:DB::ResultSet)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_132 : DB::ResultSet)
+        def self.<strong>new</strong>(__temp_128 : DB::ResultSet)
 
-        <a class="method-permalink" href="#new%28__temp_132%3ADB%3A%3AResultSet%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28__temp_128%3ADB%3A%3AResultSet%29-class-method">#</a>
       </div>
       
       <br/>
@@ -737,7 +762,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -753,7 +778,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -772,7 +797,7 @@ i.e. :posts => :has_many</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -790,7 +815,7 @@ i.e. :posts => :has_many</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -806,7 +831,7 @@ i.e. :posts => :has_many</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -822,7 +847,7 @@ i.e. :posts => :has_many</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -838,7 +863,7 @@ i.e. :posts => :has_many</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -854,7 +879,7 @@ i.e. :posts => :has_many</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -873,7 +898,7 @@ i.e. :posts => :user_id</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -892,17 +917,17 @@ i.e. :posts, post => post.user_id</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="from_rs(__temp_132:DB::ResultSet)-class-method">
+    <div class="entry-detail" id="from_rs(__temp_128:DB::ResultSet)-class-method">
       <div class="signature">
         
-        def self.<strong>from_rs</strong>(__temp_132 : DB::ResultSet)
+        def self.<strong>from_rs</strong>(__temp_128 : DB::ResultSet)
 
-        <a class="method-permalink" href="#from_rs%28__temp_132%3ADB%3A%3AResultSet%29-class-method">#</a>
+        <a class="method-permalink" href="#from_rs%28__temp_128%3ADB%3A%3AResultSet%29-class-method">#</a>
       </div>
       
       <br/>
@@ -925,7 +950,7 @@ i.e. :posts => Post</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -941,7 +966,7 @@ i.e. :posts => Post</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -959,7 +984,7 @@ i.e. :posts => Post</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -977,7 +1002,7 @@ i.e. :posts => Post</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -996,7 +1021,7 @@ i.e. :posts, user, [posts] => user.posts = [posts]</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1014,7 +1039,7 @@ i.e. :posts, user, [posts] => user.posts = [posts]</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1033,7 +1058,7 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1049,7 +1074,7 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1065,7 +1090,7 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1102,7 +1127,7 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L45" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1118,7 +1143,7 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L45" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1134,7 +1159,7 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L45" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1181,12 +1206,12 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       </div>
     </div>
   
-    <div class="entry-detail" id="created_at:Time?-instance-method">
+    <div class="entry-detail" id="created_at:String?-instance-method">
       <div class="signature">
         
-        def <strong>created_at</strong> : Time?
+        def <strong>created_at</strong> : String?
 
-        <a class="method-permalink" href="#created_at%3ATime%3F-instance-method">#</a>
+        <a class="method-permalink" href="#created_at%3AString%3F-instance-method">#</a>
       </div>
       
       <br/>
@@ -1195,12 +1220,26 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       </div>
     </div>
   
-    <div class="entry-detail" id="created_at=(_created_at:Time?)-instance-method">
+    <div class="entry-detail" id="created_at!-instance-method">
       <div class="signature">
         
-        def <strong>created_at=</strong>(_created_at : Time?)
+        def <strong>created_at!</strong>
 
-        <a class="method-permalink" href="#created_at%3D%28_created_at%3ATime%3F%29-instance-method">#</a>
+        <a class="method-permalink" href="#created_at%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at=(_created_at:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at=</strong>(_created_at : String?)
+
+        <a class="method-permalink" href="#created_at%3D%28_created_at%3AString%3F%29-instance-method">#</a>
       </div>
       
       <br/>
@@ -1248,7 +1287,7 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/a9ca223cda27e9d820bb00ec3007542a555f1a45/src/repo/models/models.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/5a6642c7bf7b3206c4a7660fb593609e13a81b44/src/repo/models/models.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1549,8 +1588,6 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
         <a class="method-permalink" href="#total%21-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Builds fields' cast typed method</p></div>
-      
       <br/>
       <div>
         
@@ -1599,12 +1636,12 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       </div>
     </div>
   
-    <div class="entry-detail" id="updated_at:Time?-instance-method">
+    <div class="entry-detail" id="updated_at:String?-instance-method">
       <div class="signature">
         
-        def <strong>updated_at</strong> : Time?
+        def <strong>updated_at</strong> : String?
 
-        <a class="method-permalink" href="#updated_at%3ATime%3F-instance-method">#</a>
+        <a class="method-permalink" href="#updated_at%3AString%3F-instance-method">#</a>
       </div>
       
       <br/>
@@ -1613,12 +1650,28 @@ i.e. :posts => :user_posts (if has_many through)</p></div>
       </div>
     </div>
   
-    <div class="entry-detail" id="updated_at=(_updated_at:Time?)-instance-method">
+    <div class="entry-detail" id="updated_at!-instance-method">
       <div class="signature">
         
-        def <strong>updated_at=</strong>(_updated_at : Time?)
+        def <strong>updated_at!</strong>
 
-        <a class="method-permalink" href="#updated_at%3D%28_updated_at%3ATime%3F%29-instance-method">#</a>
+        <a class="method-permalink" href="#updated_at%21-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Builds fields' cast typed method</p></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at=(_updated_at:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at=</strong>(_updated_at : String?)
+
+        <a class="method-permalink" href="#updated_at%3D%28_updated_at%3AString%3F%29-instance-method">#</a>
       </div>
       
       <br/>
