@@ -32,3 +32,6 @@ dependencies:
   micrate:
     github: amberframework/micrate
     version: ~> 0.3.0
+  schedule:
+    github: hugoabonizio/schedule.cr
+    version: ~> 0.2.0

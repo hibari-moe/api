@@ -8,3 +8,4 @@ report/out
 report/pyg
 *.pdf
 *.db
+*.log

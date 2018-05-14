@@ -5,6 +5,7 @@ require "./repo/*" # Database connections
 require "./hibari/*"
 require "./json_api/*"
 require "./kitsu/*"
+require "./cron/*"
 
 # Kemal configuration
 Kemal.config.port = 2222
@@ -21,8 +22,10 @@ unless ENV.has_key? "KEMAL_ENV"
     build_args: [ "build", "src/api.cr", "-o", "./api"],
     should_build: true
   ) do
+    Cron.run
     Kemal.run
   end
 else
+  Cron.run
   Kemal.run
 end

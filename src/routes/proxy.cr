@@ -3,6 +3,8 @@ module Hibari::Routes
     model = env.params.url["model"]
     query = env.params.query
 
+    p query
+
     Hibari::Kitsu.get(model, query).to_json
   end
 end

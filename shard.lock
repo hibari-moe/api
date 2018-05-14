@@ -28,6 +28,10 @@ shards:
     github: luislavena/radix
     version: 0.3.8
 
+  schedule:
+    github: hugoabonizio/schedule.cr
+    version: 0.2.0
+
   sentry:
     github: samueleaton/sentry
     version: 0.2.0
