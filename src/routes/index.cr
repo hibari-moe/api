@@ -1,7 +1,5 @@
-#module Hibari::Routes
-#  get "/" do |env|
-#    db = DB.open Database.DB_URL
-#    Database.table_names(db).to_json
-#    db.close
-#  end
-#end
+module Hibari::Routes
+  get "/" do |env|
+    Hibari::JsonAPI.error 501, "Not Implemented"
+  end
+end

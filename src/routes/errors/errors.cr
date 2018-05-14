@@ -1,7 +1,7 @@
 # Error endpoints for the Hibari API.
 #
 # Each error returns a JSON:API formatted error response
-module Hibari::Errors
+module Hibari::Routes::Errors
   extend self
 
   # Sets the response headers for each error endpoint

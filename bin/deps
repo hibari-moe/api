@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-crystal deps build --production --release
+crystal deps build

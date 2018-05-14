@@ -22,7 +22,7 @@ shards:
 
   micrate:
     github: amberframework/micrate
-    version: 0.3.0
+    version: 0.3.1
 
   radix:
     github: luislavena/radix
