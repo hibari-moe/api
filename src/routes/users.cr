@@ -1,6 +1,6 @@
 module Hibari::Routes
   get "/users" do |env|
-    query = Repo::QUERY.order_by("users.name DESC")
+    query = Repo::Query.order_by("users.id DESC")
     users = Repo.all Repo::User, query
     #users = Repo.all Repo::User, query, preload: [:anime_library_entries]
 
@@ -29,7 +29,7 @@ end
 
 #module Hibari::Routes
 #  get "/users" do |env|
-#    query = Repo::QUERY.order_by("users.name DESC")
+#    query = Repo::Query.order_by("users.name DESC")
 #    users = Repo.all(Repo::User, query, preload: [:anime_library_entries])
 #
 #    string = JSON.build do |json|

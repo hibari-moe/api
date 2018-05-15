@@ -1,3 +1,3 @@
 module Repo
-  QUERY = Crecto::Repo::Query
+  Query = Crecto::Repo::Query
 end

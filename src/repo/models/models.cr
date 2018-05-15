@@ -22,6 +22,7 @@ module Repo
       field :status, Int32
       field :rating, Int32
       has_many :user_anime_library_entries, UserAnimeLibraryEntry
+      belongs_to :anime, Anime
     end
   end
 
@@ -29,7 +30,7 @@ module Repo
     set_created_at_field nil
     set_updated_at_field nil
 
-    schema "user_anime_library_entries", primary_key: false do
+    schema "user_anime_library_entries" do
       field :updated_at, String
       field :created_at, String
       belongs_to :user, User

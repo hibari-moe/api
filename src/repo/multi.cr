@@ -1,3 +1,3 @@
 module Repo
-  MULTI = Crecto::Multi
+  Multi = Crecto::Multi
 end
