@@ -3,58 +3,66 @@ module Cron::Tasks::LibraryEntries
 
   class Mappings
     JSON.mapping({
-      data: Array(LibraryEntries),
+      data:     Array(LibraryEntries),
       included: Array(Anime),
-      links: Links
+      links:    Links,
     })
+
     class LibraryEntries
       JSON.mapping({
-        id: String,
-        attributes: Attributes,
-        relationships: Relationships
+        id:            String,
+        attributes:    Attributes,
+        relationships: Relationships,
       })
+
       class Attributes
         JSON.mapping({
-          status: String,
-          progress: Int32?,
+          status:       String,
+          progress:     Int32?,
           ratingTwenty: Int32?,
-          createdAt: String,
-          updatedAt: String
+          createdAt:    String,
+          updatedAt:    String,
         })
       end
+
       class Relationships
         JSON.mapping({
-          media: Media
+          media: Media,
         })
+
         class Media
           JSON.mapping({
-            data: MediaData
+            data: MediaData,
           })
+
           class MediaData
             JSON.mapping({
-              id: String
+              id: String,
             })
           end
         end
       end
     end
+
     class Anime
       JSON.mapping({
-        id: String,
-        attributes: Attributes
+        id:         String,
+        attributes: Attributes,
       })
+
       class Attributes
         JSON.mapping({
           createdAt: String,
           updatedAt: String,
-          status: String,
-          startDate: String
+          status:    String,
+          startDate: String,
         })
       end
     end
+
     class Links
       JSON.mapping({
-        next: String?
+        next: String?,
       })
     end
   end
@@ -82,7 +90,7 @@ module Cron::Tasks::LibraryEntries
       anime_library_entry_id: entry_id
     ) || Repo::UserAnimeLibraryEntry.new
 
-    #2018-03-20T16:31:12.000Z
+    # 2018-03-20T16:31:12.000Z
     timestamp = Time.now.to_s "%Y-%m-%dT%H:%M.%LZ"
     uale.updated_at = timestamp
 
@@ -109,12 +117,12 @@ module Cron::Tasks::LibraryEntries
     anime.updated_at = timestamp
     anime.created_at = timestamp
 
-    #if attributes
+    # if attributes
     #  anime.status = AiringStatus.parse(attributes.status)
     #  anime.start_date = attributes.startDate
     #  anime.updated_at = attributes.updatedAt
     #  anime.created_at = attributes.createdAt
-    #end
+    # end
 
     if anime.id
       p "update #{anime_id}"

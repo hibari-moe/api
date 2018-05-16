@@ -20,7 +20,7 @@ unless ENV.has_key? "KEMAL_ENV"
     process_name: "API",
     build_command: "crystal",
     run_command: "./api",
-    build_args: [ "build", "src/api.cr", "-o", "./api"],
+    build_args: ["build", "src/api.cr", "-o", "./api"],
     should_build: true
   ) do
     Cron.run

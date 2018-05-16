@@ -3,18 +3,20 @@ module Cron::Tasks::Users
 
   class Mappings
     JSON.mapping({
-      data: Array(Users)
+      data: Array(Users),
     })
+
     class Users
       JSON.mapping({
-        id: String,
-        attributes: Attributes
+        id:         String,
+        attributes: Attributes,
       })
+
       class Attributes
         JSON.mapping({
-          name: String,
+          name:      String,
           updatedAt: String,
-          createdAt: String
+          createdAt: String,
         })
       end
     end
@@ -50,12 +52,12 @@ module Cron::Tasks::Users
 
         if user.id
           user.name = u.attributes.name
-          user.updated_at =u.attributes.updatedAt
+          user.updated_at = u.attributes.updatedAt
           Repo.update user
         else
           user.id = user_id
           user.name = u.attributes.name
-          user.updated_at =u.attributes.updatedAt
+          user.updated_at = u.attributes.updatedAt
           user.created_at = u.attributes.createdAt
           Repo.insert user
         end

@@ -3,12 +3,12 @@ module Hibari::JsonAPI
     {
       errors: [
         {
-          title: title,
+          title:  title,
           detail: detail,
           status: status,
-          code: status
-        }
-      ]
+          code:   status,
+        },
+      ],
     }.to_json
   end
 end

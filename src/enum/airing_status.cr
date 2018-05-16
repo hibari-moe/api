@@ -1,5 +1,5 @@
 enum AiringStatus
-  TBA = 1
+  TBA        = 1
   Unreleased
   Upcoming
   Current
