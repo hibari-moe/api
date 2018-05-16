@@ -1,11 +1,8 @@
 % !TeX root = ../index.tex
 \chapter{Technology - Wider Context}
-% 5 marks
-\fxerror{Not started}
 
-\section{Technological Solutions}
-\section{Architectural Solutions}
-\section{Protocol Solutions}
-\section{Merits and Limitations}
-\section{Security, Reliability and Performance Issues}
+There are three main architectural solutions for distributed systems. The first is \textit{Client-Server} where multiple clients (devices) can request data from one or more servers. As this is a centralised network, if the server goes down the service becomes inaccessible by the external clients.
 
+Another architecture is the \textit{Three-Tier} model. This expands upon the client-server architecture by splitting it into three independent tiers: presentation, logic and data. The presentation tier is the user interface of the service. The logic tier is where a database is accessed to insert information into the data tier or supply information to the presentation tier. Finally, the data tier is where the data is stored in a database, such as MySQL or PostgreSQL. This type of architecture is most common with web services.
+
+\textit{Peer-to-Peer} is a decentralised distributed system which does not rely on a server. All of the peers are clients that can request and receive data from any other peer. As a result it has an advantage over the client-server model as when one peer goes down, the remaining peers continue on sharing the extra load equally.

@@ -1,11 +1,17 @@
 % !TeX root = ../index.tex
 \chapter{Web Services Technology}
-% 5 marks
-\fxerror{Not started}
 
-\section{Definition of Web Services}
-\section{Underlying Technology of Web Services}
-\section{Underlying Architecture of Web Services}
-\section{Merits and Limitations of Web Services}
-\section{Security Concerns with Web Services}
-\section{Reliability Concerns with Web Services}
+% \section{Definition of Web Services}
+
+A \textit{Web Service} is a service accessible on the Internet via the World Wide Web that people can interact with using electronic devices.
+
+% \section{Underlying Technology of Web Services}
+
+The underlying technology of Web Services is typically either \textit{AJAX} (Asynchronous JavaScript And XML) or \textit{REST} (Representational State Transfer). While AJAX was originally intended to use the XML markup language for transferring data, it is also commonly used to transfer data using the JSON file format. AJAX allowed Web Services to send and receive new data in the background to avoid interrupting the end-user's experience, such as no longer having require a page refresh when submitting data to the server. RESTful Web Services use a uniform and predefined set of operations (GET, PUT, PATCH, POST, DELETE and OPTIONS) that are completely agnostic to previous requests sent/received.
+
+There are many security concerns related to Web Services. One is the risk of XML injections as many Web Services will use user-input when requesting data from their database(s). If user input is not validated or sanitised (e.g by using prepared statements) then an attacker is able to craft requests that can expose the data stored in the database - or potentially delete it.
+
+Another security concern is with session hijacking with Web Services that have a user authentication system. When a user logs in, a session ID is created that is unique to the user. This is then stored on the client's device typically as a Cookie or a LocalStorage key. On all requests the session ID is included so that the server can authenticate the user. If these requests are intercepted (e.g on a public WiFi network) then you can hijack and gain access to that user's account using their session ID. Hijacking session IDs by the interception of requests can be prevented by having a secure connection between the client and server by using Transport Layer Security.
+
+% \section{Merits and Limitations of Web Services}
+% \section{Reliability Concerns with Web Services}
