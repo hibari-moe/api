@@ -13,13 +13,16 @@ The project will provide extra statistics related to users and media on Kitsu, w
 
 The Web Service I will be consuming in this project is Kitsu\footnote{\url{https://kitsu.io}}, an anime \& manga discovery and tracking service (similar to IMDb). Its Web Service published as a RESTful API\footnote{\url{https://kitsu.docs.apiary.io}} that uses the JSON:API\footnote{\url{http://jsonapi.org}} specification.
 
+From Kitsu's API I will be storing user IDs, user's library entries (completion status, rating and progress) and anime data (airing status, start date and episode count).
+
+\newpage
 \section{What Will Be Exposed in My Web Service}
 \fxwarning{In progress}
 
-\textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as separate API methods that share the same functionality and output.
+% \textbf{Note:} \textit{media} refers to \textit{anime} and \textit{manga} exposed as separate API methods that share the same functionality and output.
 
 \begin{enumerate}
-  \item\label{computed-stats} Computed statistics of media ratings\fxnote{Maybe also Chebyshev's Theorem and Coefficient of Variation}
+  \item\label{computed-stats} Computed statistics of media ratings%\fxnote{Maybe also Chebyshev's Theorem and Coefficient of Variation}
     \begin{enumerate}
       \item Count
       \item Mean
@@ -34,7 +37,6 @@ The Web Service I will be consuming in this project is Kitsu\footnote{\url{https
       \item Statistics of media in the user's library (see \ref{computed-stats}.)
       \item Statistics of media in the user's library grouped by airing year (see \ref{computed-stats}.)
       \item Statistics of media in the user's library grouped by category (see \ref{computed-stats}.)
-      \item Top 10 media per category
       \item Total episodes/chapters seen
       \item Total episodes/chapters seen per status type (Currently Watching, Plan to Watch, Completed, On Hold and Dropped)
       \item Total episodes/chapters not seen
@@ -51,8 +53,15 @@ The Web Service I will be consuming in this project is Kitsu\footnote{\url{https
     \end{enumerate}
 \end{enumerate}
 
+\newpage
 \section{Initial Database Schema}
-\fxerror{Not started}
 
+\begin{figure}[H]
+  \caption{Schema}
+  \centering
+  \includegraphics[width=.5\textwidth]{1-schema}
+\end{figure}
+
+\newpage
 \section{Initial Wireframes / UI Ideas}
 \fxerror{Not started}
