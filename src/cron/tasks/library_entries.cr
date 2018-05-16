@@ -57,6 +57,7 @@ module Cron::Tasks::LibraryEntries
           updatedAt: String,
           status:    String,
           startDate: String?,
+          episodeCount: Int64?
         })
       end
     end
@@ -93,7 +94,7 @@ module Cron::Tasks::LibraryEntries
 
     # Add or update anime associated with library entries
     entries.included.each do |data|
-      Helper.create_anime(data) unless data.type != "anime"
+      Helper.create_anime data unless data.type != "anime"
     end
 
     # Add or update library entries

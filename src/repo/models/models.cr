@@ -20,6 +20,7 @@ module Repo
       field :created_at, String
       field :status, Int64
       field :rating, Int64
+      field :progress, Int64
       belongs_to :user, User
       belongs_to :anime, Anime
     end
@@ -33,6 +34,7 @@ module Repo
       field :updated_at, String
       field :created_at, String
       field :status, Int64
+      field :episodes, Int64
       field :start_date, String
     end
   end
