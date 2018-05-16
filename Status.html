@@ -5,7 +5,7 @@
   <meta id="repository-name" content="github.com/wopian/hibari-api">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/doc.js"></script>
-  <title>Cron - github.com/wopian/hibari-api</title>
+  <title>Status - github.com/wopian/hibari-api</title>
 </head>
 <body>
 
@@ -30,7 +30,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/wopian/hibari-api/Cron" data-name="cron">
+  <li class="parent " data-id="github.com/wopian/hibari-api/Cron" data-name="cron">
       <a href="Cron.html">Cron</a>
       
         <ul>
@@ -245,7 +245,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/wopian/hibari-api/Status" data-name="status">
+  <li class=" current" data-id="github.com/wopian/hibari-api/Status" data-name="status">
       <a href="Status.html">Status</a>
       
     </li>
@@ -257,7 +257,7 @@
 <div id="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> Cron
+  <span class="kind">enum</span> Status
 
 </h1>
 
@@ -271,13 +271,6 @@
 
 
 
-  <h2>Extended Modules</h2>
-  <ul class="other-types-list">
-  
-    <li class="other-type"><a href="Cron.html">Cron</a></li>
-  
-  </ul>
-
 
 
 
@@ -288,17 +281,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/tasks/library_entries.cr#L1" target="_blank">cron/tasks/library_entries.cr</a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/index.cr#L9" target="_blank">cron/index.cr</a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/limit.cr#L1" target="_blank">cron/limit.cr</a>
+      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/enum/status.cr#L1" target="_blank">enum/status.cr</a>
     
     <br/>
   
@@ -306,17 +289,32 @@
 
 
   
-    <h2>Constant Summary</h2>
+    <h2>Enum Members</h2>
   
   <dl>
     
-      <dt class="entry-const" id="LIMIT">
-        <strong>LIMIT</strong> = <code><span class="n">20</span></code>
+      <dt class="entry-const" id="Current">
+        <strong>Current</strong> = <code><span class="n">1</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="LIMIT_LIBRARY">
-        <strong>LIMIT_LIBRARY</strong> = <code><span class="n">500</span></code>
+      <dt class="entry-const" id="Planned">
+        <strong>Planned</strong> = <code><span class="n">2</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Completed">
+        <strong>Completed</strong> = <code><span class="n">3</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="On_Hold">
+        <strong>On_Hold</strong> = <code><span class="n">4</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Dropped">
+        <strong>Dropped</strong> = <code><span class="n">5</span></code>
       </dt>
       
     
@@ -332,7 +330,27 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#run-instance-method" class="signature"><strong>#run</strong></a>
+        <a href="#completed%3F-instance-method" class="signature"><strong>#completed?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#current%3F-instance-method" class="signature"><strong>#current?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dropped%3F-instance-method" class="signature"><strong>#dropped?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_hold%3F-instance-method" class="signature"><strong>#on_hold?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#planned%3F-instance-method" class="signature"><strong>#planned?</strong></a>
         
       </li>
     
@@ -344,6 +362,46 @@
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
 
@@ -353,18 +411,82 @@
 
   <h2>Instance Method Detail</h2>
   
-    <div class="entry-detail" id="run-instance-method">
+    <div class="entry-detail" id="completed?-instance-method">
       <div class="signature">
         
-        def <strong>run</strong>
+        def <strong>completed?</strong>
 
-        <a class="method-permalink" href="#run-instance-method">#</a>
+        <a class="method-permalink" href="#completed%3F-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/index.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/enum/status.cr#L4" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="current?-instance-method">
+      <div class="signature">
+        
+        def <strong>current?</strong>
+
+        <a class="method-permalink" href="#current%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/enum/status.cr#L2" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dropped?-instance-method">
+      <div class="signature">
+        
+        def <strong>dropped?</strong>
+
+        <a class="method-permalink" href="#dropped%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/enum/status.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_hold?-instance-method">
+      <div class="signature">
+        
+        def <strong>on_hold?</strong>
+
+        <a class="method-permalink" href="#on_hold%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/enum/status.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="planned?-instance-method">
+      <div class="signature">
+        
+        def <strong>planned?</strong>
+
+        <a class="method-permalink" href="#planned%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/enum/status.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>

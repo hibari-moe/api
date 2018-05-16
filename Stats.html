@@ -5,7 +5,7 @@
   <meta id="repository-name" content="github.com/wopian/hibari-api">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/doc.js"></script>
-  <title>Cron - github.com/wopian/hibari-api</title>
+  <title>Stats - github.com/wopian/hibari-api</title>
 </head>
 <body>
 
@@ -30,7 +30,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/wopian/hibari-api/Cron" data-name="cron">
+  <li class="parent " data-id="github.com/wopian/hibari-api/Cron" data-name="cron">
       <a href="Cron.html">Cron</a>
       
         <ul>
@@ -240,7 +240,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/wopian/hibari-api/Stats" data-name="stats">
+  <li class=" current" data-id="github.com/wopian/hibari-api/Stats" data-name="stats">
       <a href="Stats.html">Stats</a>
       
     </li>
@@ -257,7 +257,7 @@
 <div id="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> Cron
+  <span class="kind">module</span> Stats
 
 </h1>
 
@@ -274,7 +274,7 @@
   <h2>Extended Modules</h2>
   <ul class="other-types-list">
   
-    <li class="other-type"><a href="Cron.html">Cron</a></li>
+    <li class="other-type"><a href="Stats.html">Stats</a></li>
   
   </ul>
 
@@ -288,39 +288,17 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/tasks/library_entries.cr#L1" target="_blank">cron/tasks/library_entries.cr</a>
+      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/stats/anime_stats.cr#L1" target="_blank">stats/anime_stats.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/index.cr#L9" target="_blank">cron/index.cr</a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/limit.cr#L1" target="_blank">cron/limit.cr</a>
+      <a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/stats/user_stats.cr#L1" target="_blank">stats/user_stats.cr</a>
     
     <br/>
   
 
 
-
-  
-    <h2>Constant Summary</h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="LIMIT">
-        <strong>LIMIT</strong> = <code><span class="n">20</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="LIMIT_LIBRARY">
-        <strong>LIMIT_LIBRARY</strong> = <code><span class="n">500</span></code>
-      </dt>
-      
-    
-  </dl>
 
 
 
@@ -332,7 +310,12 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#run-instance-method" class="signature"><strong>#run</strong></a>
+        <a href="#anime_stats%28anime_id%29-instance-method" class="signature"><strong>#anime_stats</strong>(anime_id)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#user_stats%28user_id%29-instance-method" class="signature"><strong>#user_stats</strong>(user_id)</a>
         
       </li>
     
@@ -353,18 +336,34 @@
 
   <h2>Instance Method Detail</h2>
   
-    <div class="entry-detail" id="run-instance-method">
+    <div class="entry-detail" id="anime_stats(anime_id)-instance-method">
       <div class="signature">
         
-        def <strong>run</strong>
+        def <strong>anime_stats</strong>(anime_id)
 
-        <a class="method-permalink" href="#run-instance-method">#</a>
+        <a class="method-permalink" href="#anime_stats%28anime_id%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/cron/index.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/stats/anime_stats.cr#L2" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="user_stats(user_id)-instance-method">
+      <div class="signature">
+        
+        def <strong>user_stats</strong>(user_id)
+
+        <a class="method-permalink" href="#user_stats%28user_id%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/wopian/hibari-api/blob/40f6a2f899ab12400a5db168755b15fd4a281793/src/stats/user_stats.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
