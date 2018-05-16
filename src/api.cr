@@ -5,6 +5,7 @@ require "./repo/*" # Database connections
 require "./hibari/*"
 require "./json_api/*"
 require "./kitsu/*"
+require "./enum/*"
 require "./cron/*"
 
 # Kemal configuration

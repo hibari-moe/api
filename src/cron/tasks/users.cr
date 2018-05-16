@@ -28,7 +28,7 @@ module Cron::Tasks::Users
       p.add "page[offset]", offset.to_s
     end
 
-    Hibari::Kitsu.get("users", query)
+    Hibari::Kitsu.get "users", query
   end
 
   def cron_runner
@@ -51,13 +51,13 @@ module Cron::Tasks::Users
         if user.id
           user.name = u.attributes.name
           user.updated_at =u.attributes.updatedAt
-          Repo.update(user)
+          Repo.update user
         else
           user.id = user_id
           user.name = u.attributes.name
           user.updated_at =u.attributes.updatedAt
           user.created_at = u.attributes.createdAt
-          Repo.insert(user)
+          Repo.insert user
         end
       end
     end

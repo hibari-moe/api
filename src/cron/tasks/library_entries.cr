@@ -1,22 +1,6 @@
 module Cron::Tasks::LibraryEntries
   extend self
 
-  enum Status
-    Current = 1
-    Planned
-    Completed
-    On_Hold
-    Dropped
-  end
-
-  enum AiringStatus
-    TBA = 1
-    Unreleased
-    Upcoming
-    Current
-    Finished
-  end
-
   class Mappings
     JSON.mapping({
       data: Array(LibraryEntries),
@@ -86,7 +70,7 @@ module Cron::Tasks::LibraryEntries
       p.add "page[offset]", offset.to_s
     end
 
-    Hibari::Kitsu.get("library-entries", query)
+    Hibari::Kitsu.get "library-entries", query
   end
 
   def create_user_anime_library_entry(user_id, entry_id)
@@ -99,7 +83,7 @@ module Cron::Tasks::LibraryEntries
     ) || Repo::UserAnimeLibraryEntry.new
 
     #2018-03-20T16:31:12.000Z
-    timestamp = Time.now.to_s("%Y-%m-%dT%H:%M.%LZ")
+    timestamp = Time.now.to_s "%Y-%m-%dT%H:%M.%LZ"
     uale.updated_at = timestamp
 
     p entry_id
@@ -109,10 +93,10 @@ module Cron::Tasks::LibraryEntries
       uale.anime_library_entry_id = entry_id
       uale.created_at = timestamp
       p "Added anime library entry"
-      Repo.insert(uale)
+      Repo.insert uale
     else
       p "Updated anime library entry"
-      Repo.update(uale)
+      Repo.update uale
     end
   end
 
@@ -121,7 +105,7 @@ module Cron::Tasks::LibraryEntries
 
     anime = Repo.get(Repo::Anime, anime_id) || Repo::Anime.new
 
-    timestamp = Time.now.to_s("%Y-%m-%dT%H:%M.%LZ")
+    timestamp = Time.now.to_s "%Y-%m-%dT%H:%M.%LZ"
     anime.updated_at = timestamp
     anime.created_at = timestamp
 
@@ -134,11 +118,11 @@ module Cron::Tasks::LibraryEntries
 
     if anime.id
       p "update #{anime_id}"
-      Repo.update(anime)
+      Repo.update anime
     else
       p "insert #{anime_id}"
       anime.id = anime_id
-      Repo.insert(anime)
+      Repo.insert anime
     end
   end
 
@@ -174,17 +158,17 @@ module Cron::Tasks::LibraryEntries
 
       if entry.id
         p "update #{entry_id}"
-        Repo.update(entry)
+        Repo.update entry
       else
         p "insert #{entry_id}"
         p "user #{user_id}"
         entry.id = entry_id
         p "new id: #{entry.id}"
 
-        changeset = Repo::AnimeLibraryEntry.changeset(entry)
+        changeset = Repo::AnimeLibraryEntry.changeset entry
         p changeset.changes
 
-        Repo.insert(entry)
+        Repo.insert entry
         p "done"
       end
     end
@@ -192,7 +176,7 @@ module Cron::Tasks::LibraryEntries
 
   def cron_runner
     query = Repo::Query.select(["id"])
-    users = Repo.all(Repo::User, query)
+    users = Repo.all Repo::User, query
 
     users.each do |u|
       library_entries user_id: u.id
