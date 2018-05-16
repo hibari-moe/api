@@ -28,8 +28,8 @@ if DEV
     build_args: ["build", "src/api.cr", "-o", "./api"],
     should_build: true
   ) do
-      Cron.run
-      Kemal.run
+    Cron.run
+    Kemal.run
   end
 else
   Cron.run

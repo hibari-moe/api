@@ -13,7 +13,7 @@ class Array
     if count % 2 == 1
       sorted[half]
     else
-      (sorted[half-1] + sorted[half]) / 2.to_f
+      (sorted[half - 1] + sorted[half]) / 2.to_f
     end.to_f
   end
 
@@ -56,9 +56,7 @@ class Array
   def sorted_frequencies
     frequencies.to_a.sort_by { |key, value| value }
   end
-
 end
-
 
 #     def modes(&block)
 #       sorted_frequencies = self.sorted_frequencies

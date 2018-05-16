@@ -1,5 +1,4 @@
 module Hibari::JsonAPI
-
   def attribute_stats_freq(json, key, value)
     json.field key do
       json.object do
@@ -9,7 +8,6 @@ module Hibari::JsonAPI
       end
     end
   end
-
 
   def attribute_stats(json, stats)
     json.object do

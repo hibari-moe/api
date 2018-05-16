@@ -53,11 +53,11 @@ module Cron::Tasks::LibraryEntries
 
       struct Attributes
         JSON.mapping({
-          createdAt: String,
-          updatedAt: String,
-          status:    String,
-          startDate: String?,
-          episodeCount: Int64?
+          createdAt:    String,
+          updatedAt:    String,
+          status:       String,
+          startDate:    String?,
+          episodeCount: Int64?,
         })
       end
     end
@@ -127,11 +127,11 @@ module Cron::Tasks::LibraryEntries
       end
     end
 
-    #if library_entries user_id, offset
+    # if library_entries user_id, offset
     #  p "# Getting next page" if DEV
     #  next_page = offset += 1
     #  library_entries user_id, next_page
-    #end
+    # end
   end
 
   def cron_runner
