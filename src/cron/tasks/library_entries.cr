@@ -1,41 +1,41 @@
 module Cron::Tasks::LibraryEntries
   extend self
 
-  class Mappings
+  struct Mappings
     JSON.mapping({
       data:     Array(LibraryEntries),
       included: Array(Anime)?,
       links:    Links,
     })
 
-    class LibraryEntries
+    struct LibraryEntries
       JSON.mapping({
         id:            String,
         attributes:    Attributes,
         relationships: Relationships,
       })
 
-      class Attributes
+      struct Attributes
         JSON.mapping({
           status:       String,
-          progress:     Int32?,
-          ratingTwenty: Int32?,
+          progress:     Int64?,
+          ratingTwenty: Int64?,
           createdAt:    String,
           updatedAt:    String,
         })
       end
 
-      class Relationships
+      struct Relationships
         JSON.mapping({
           media: Media,
         })
 
-        class Media
+        struct Media
           JSON.mapping({
             data: MediaData,
           })
 
-          class MediaData
+          struct MediaData
             JSON.mapping({
               id: String,
             })
@@ -44,14 +44,14 @@ module Cron::Tasks::LibraryEntries
       end
     end
 
-    class Anime
+    struct Anime
       JSON.mapping({
         id:         String,
         type:       String,
         attributes: Attributes,
       })
 
-      class Attributes
+      struct Attributes
         JSON.mapping({
           createdAt: String,
           updatedAt: String,
@@ -61,7 +61,7 @@ module Cron::Tasks::LibraryEntries
       end
     end
 
-    class Links
+    struct Links
       JSON.mapping({
         next: String?,
       })
@@ -105,10 +105,32 @@ module Cron::Tasks::LibraryEntries
     # entries to fetch. If missing (i.e Nil) then we're on the last
     # page and can continue to the next user
     if entries.links.next
-      p "# Getting next page" if DEV
-      next_page = offset += 1
-      library_entries user_id, next_page
+      return true
+    else
+      return false
     end
+  end
+
+  def library_entries_init(user_id, offset = 0)
+    has_next_page = true
+    next_page = offset
+
+    while has_next_page
+      has_next_page = library_entries user_id, offset
+      if has_next_page
+        p "# Getting next page" if DEV
+        offset += 1
+      else
+        p "# No more pages" if DEV
+        break
+      end
+    end
+
+    #if library_entries user_id, offset
+    #  p "# Getting next page" if DEV
+    #  next_page = offset += 1
+    #  library_entries user_id, next_page
+    #end
   end
 
   def cron_runner
@@ -117,7 +139,7 @@ module Cron::Tasks::LibraryEntries
 
     users.each do |user|
       p "## Running for user #{user.id}" if DEV
-      library_entries user.id
+      library_entries_init user.id
       p "## Finished for user #{user.id}" if DEV
     end
   end

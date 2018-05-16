@@ -19,8 +19,8 @@ module Repo
     schema "anime_library_entries" do
       field :updated_at, String
       field :created_at, String
-      field :status, Int32
-      field :rating, Int32
+      field :status, Int64
+      field :rating, Int64
       has_many :user_anime_library_entries, UserAnimeLibraryEntry
       belongs_to :anime, Anime
     end
@@ -45,7 +45,7 @@ module Repo
     schema "anime" do
       field :updated_at, String
       field :created_at, String
-      field :status, Int32
+      field :status, Int64
       field :start_date, String
       has_one :anime_ratings, AnimeRating
     end
@@ -58,12 +58,13 @@ module Repo
     schema "anime_ratings" do
       field :updated_at, String
       field :created_at, String
-      field :total, Int32
-      field :mean, Int32
-      field :median, Int32
-      field :mode, Int32
-      field :variance, Int32
-      field :standard_deviation, Int32
+      field :total, Int64
+      field :mean, Float64
+      field :median, Float64
+      field :mode, Int64
+      field :variance, Float64
+      field :stddev, Float64
+      field :relative_stddev, Float64
       belongs_to :anime, Anime
     end
   end

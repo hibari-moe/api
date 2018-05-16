@@ -9,8 +9,9 @@ module Cron
     # Schedule.every(15.seconds) do
     #  Tasks::Users.cron_runner
     # end
-    Tasks::Users.cron_runner
-    Tasks::LibraryEntries.cron_runner
+    #Tasks::Users.cron_runner unless TEST
+    #Tasks::LibraryEntries.cron_runner unless TEST
+    Tasks::AnimeStats.cron_runner unless TEST
   end
 end
 

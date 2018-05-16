@@ -1,18 +1,18 @@
 module Cron::Tasks::Users
   extend self
 
-  class Mappings
+  struct Mappings
     JSON.mapping({
       data: Array(Users),
     })
 
-    class Users
+    struct Users
       JSON.mapping({
         id:         String,
         attributes: Attributes,
       })
 
-      class Attributes
+      struct Attributes
         JSON.mapping({
           name:      String,
           updatedAt: String,
@@ -34,10 +34,10 @@ module Cron::Tasks::Users
   end
 
   def cron_runner
-    # For coursework, limit to 40 users (2 requests of 20)
+    # For coursework, limit to 100 users (5 requests of 20)
     # For production, refactor to keep looping until links->next no
     # longer exists
-    0.upto(50) do |i|
+    0.upto(5) do |i|
       data = Mappings.from_json(fetch_users i*LIMIT)
 
       data.data.each do |data|

@@ -12,7 +12,6 @@ module Hibari::Kitsu
       "User-Agent"   => "hibari-api/#{Hibari::VERSION}/#{Crystal::VERSION} (wopian/hibari-api)",
     })
 
-    # JSON.parse response.body
     response.body
   end
 end

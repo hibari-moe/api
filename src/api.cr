@@ -6,11 +6,13 @@ require "./hibari/*"
 require "./json_api/*"
 require "./kitsu/*"
 require "./enum/*"
+require "./stats/*"
 require "./cron/*"
 
-# True for bin/run and bin/spec
-# False for release build
-DEV = !ENV.has_key? "KEMAL_ENV"
+# True for bin/run
+DEV = ENV.has_key?("KEMAL_ENV") && ENV["KEMAL_ENV"] == "development"
+# True for bin/spec
+TEST = ENV.has_key?("KEMAL_ENV") && ENV["KEMAL_ENV"] == "test"
 
 # Kemal configuration
 Kemal.config.port = 2222
@@ -26,8 +28,8 @@ if DEV
     build_args: ["build", "src/api.cr", "-o", "./api"],
     should_build: true
   ) do
-    Cron.run
-    Kemal.run
+      Cron.run
+      Kemal.run
   end
 else
   Cron.run

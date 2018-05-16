@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-crystal src/api.cr
+KEMAL_ENV=development crystal src/api.cr

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+KEMAL_ENV=production bin/api

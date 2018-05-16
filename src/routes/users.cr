@@ -1,8 +1,7 @@
 module Hibari::Routes
   get "/users" do |env|
-    query = Repo::Query.order_by("users.id DESC")
-    users = Repo.all Repo::User, query
-    # users = Repo.all Repo::User, query, preload: [:anime_library_entries]
+    query_users = Repo::Query.order_by("users.id DESC")
+    users = Repo.all Repo::User, query_users
 
     JSON.build do |json|
       json.array do
@@ -17,10 +16,29 @@ module Hibari::Routes
   end
 
   get "/users/:id" do |env|
-    user = Repo.get Repo::User, env.params.url["id"]
+    user_id = env.params.url["id"].to_i
+    user = Repo.get(Repo::User, user_id).as(Repo::User)
+
+    entries = Repo.get_association(user, :user_anime_library_entries)
+
+    p entries
 
     unless user.nil?
-      user.to_json
+      JSON.build do |json|
+        json.object do
+          json.field "data" do
+            json.object do
+              JsonAPI.field json, "id", user.id
+              JsonAPI.field json, "type", "users"
+              json.field "attributes" do
+                json.object do
+                  JsonAPI.field json, "name", user.name
+                end
+              end
+            end
+          end
+        end
+      end
     else
       halt env, status_code: 404, response: Hibari::JsonAPI.error(404, "Not Found", "User does not exist")
     end
