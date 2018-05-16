@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS anime_library_entries (
 );
 
 CREATE UNIQUE INDEX anime_library_entries_id ON anime_library_entries ('id');
-CREATE UNIQUE INDEX anime_library_entries_anime_id ON anime_library_entries ('anime_id');
+CREATE INDEX anime_library_entries_anime_id ON anime_library_entries ('anime_id');
 
 CREATE TABLE IF NOT EXISTS user_anime_library_entries (
   'id' INTEGER NOT NULL PRIMARY KEY,
