@@ -20,12 +20,7 @@ module Hibari::Routes
             JsonAPI.field json, "id", user.id
             JsonAPI.field json, "type", "usersStats"
             json.field "attributes" do
-              json.object do
-                stats.each do |key, value|
-                  value = value.round(2) unless value.nil?
-                  JsonAPI.field json, key, value
-                end
-              end
+              JsonAPI.attribute_stats json, stats
             end
           end
         end

@@ -16,7 +16,8 @@ module Stats
       "mode" => entries.mode,
       "variance" => entries.variance,
       "stddev" => entries.stddev,
-      "relative_stddev" => entries.relative_stddev
+      "relative_stddev" => entries.relative_stddev,
+      "rating_frequencies" => entries.frequencies
     }
   end
 end

@@ -331,7 +331,7 @@ my %STYLE_DESC=(
 my @LetterMacros=qw/ae AE o O aa AA oe OE ss
 alpha beta gamma delta epsilon zeta eta theta iota kappa lamda
 mu nu xi pi rho sigma tau upsilon phi chi psi omega
-Gamma Delta Theta Lambda Xi Pi Sigma Upsilon Phi Psi Omega 
+Gamma Delta Theta Lambda Xi Pi Sigma Upsilon Phi Psi Omega
 /;
 my $specialchars='\\\\('.join('|',@LetterMacros).')(\{\}|\s+|\b)';
 my $modifiedchars='\\\\[\'\"\`\~\^\=](@|\{@\})';
@@ -436,7 +436,7 @@ add_keys_to_hash(\%TeXmacro,1,
 '\includeonly','\includegraphics','\special',
 '\label','\ref','\pageref','\bibitem',
 '\eqlabel','\eqref','\hspace','\vspace','\addvspace',
-'\newsavebox','\usebox', 
+'\newsavebox','\usebox',
 '\newlength','\newcounter','\stepcounter','\refstepcounter','\usecounter',
 '\fontfamily','\fontseries',
 '\alph','\arabic','\fnsymbol','\roman','\value',
@@ -670,7 +670,7 @@ print_help();
 exit;
 } elsif ($arg=~/^@\-/) {
 next;
-} 
+}
 $arg=~s/\\/\//g;
 push @files,$arg;
 }
@@ -678,7 +678,7 @@ return @files;
 }
 sub parse_option {
 my $arg=shift @_;
-return parse_options_preset($arg) 
+return parse_options_preset($arg)
 || parse_options_parsing($arg)
 || parse_options_counts($arg)
 || parse_options_output($arg)
@@ -977,7 +977,7 @@ if ($htmlstyle>1) {html_head();}
 flush_errorbuffer($Main);
 apply_language_options();
 if ($includeBibliography) {apply_include_bibliography();}
-if ($showcodes>1 && !($STYLE{'<printlevel>'})) {%STYLE=%{$STYLES{'All'}};} 
+if ($showcodes>1 && !($STYLE{'<printlevel>'})) {%STYLE=%{$STYLES{'All'}};}
 if ($showstates) {set_verbosity_options('+States');}
 if (!@sumweights) {set_verbosity_options('-Sums');}
 (defined $printlevel)
@@ -1519,7 +1519,7 @@ flush_next($tex);
 line_return(0,$tex);
 print_style($prefix.$text,$style);
 flush_next($tex);
-$blankline=-1;    
+$blankline=-1;
 }
 }
 sub assertion_note {
@@ -1845,7 +1845,7 @@ print_style('{'.$1.'}',$localstyle);
 assert($envirname eq $1,$tex,"Environment \\begin{$envirname} ended with \\end{$1}.");
 } else {
 error($tex,"Environment ended while waiting for \end{$envirname}.");
-}  
+}
 } else {
 while (!$tex->{'eof'}) {
 _parse_unit($tex,$substat,'\end');
@@ -2283,7 +2283,7 @@ if ($wd=~$regs->{$name}) {push @classes,$name;}
 my $cl=join('+',@classes);
 if ($cl) {}
 elsif ($wd=~/\\/) {$cl='(macro)';}
-else {$cl='(unidentified)';} 
+else {$cl='(unidentified)';}
 return $cl;
 }
 sub __print_sorted_freqs {
@@ -2384,7 +2384,7 @@ if ($htmlstyle) {print "<br>\n";} else {print "\n";}
 sub print_count {
 my ($count,$class)=@_;
 line_return(0);
-if ($htmlstyle) {print "<div class='".($class||'count')."'>\n";}  
+if ($htmlstyle) {print "<div class='".($class||'count')."'>\n";}
 if ($outputtemplate) {
 _print_count_template($count,$outputtemplate);
 } elsif ($briefsum && @sumweights) {
@@ -2396,7 +2396,7 @@ if ($htmlstyle) {print "</p>\n";}
 } else {
 _print_count_details($count);
 }
-if ($htmlstyle) {print "</div>\n";}  
+if ($htmlstyle) {print "</div>\n";}
 }
 sub __count_and_header {
 my $count=shift @_;
@@ -2928,7 +2928,7 @@ if (!defined $data) {
 error($Main,"No StringData $name.",'BUG');
 return;
 }
-wprintlines(@_,@$data);  
+wprintlines(@_,@$data);
 }
 sub splitlines {
 my ($pattern,$lines)=@_;
@@ -3002,7 +3002,7 @@ Syntax: texcount.pl [options] files
 Use option -help (or just -h) to get help. For more detailed help, the following alternatives exist:
 @ -                      :
 -help-man, -man          Manual with more extensive help
--help-rule={macro/envir}    Macro/environment handling rule (backslash needed with macros)       
+-help-rule={macro/envir}    Macro/environment handling rule (backslash needed with macros)
 -help-options (-hopt)    Get list of command line options
 -help-options={substring}    Help on options containing substring
 -help-styles             List styles which determine how different elements (words, macros, etc) are presented in the verbose output

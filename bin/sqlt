@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sqlt-graph --show-datatypes --show-sizes --show-constraints --natural-join -l dot -n record -f SQLite -t png -o output.png db/seed/Initial_Database_Schema_create.sql
+sqlt-graph --show-datatypes --show-sizes --show-constraints --natural-join -l dot -n record -f SQLite -t png -o output.png db/init.sql

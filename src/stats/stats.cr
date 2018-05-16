@@ -18,7 +18,8 @@ class Array
   end
 
   def mode
-    sorted_frequencies.last.first
+    freq = sorted_frequencies
+    freq.last.first unless freq.size == 0
   end
 
   def variance
