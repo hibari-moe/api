@@ -1,5 +1,6 @@
 require "schedule"
 require "./tasks/*"
+require "./helpers/*"
 
 module Cron
   extend self
@@ -8,7 +9,7 @@ module Cron
     # Schedule.every(15.seconds) do
     #  Tasks::Users.cron_runner
     # end
-    # Tasks::Users.cron_runner
+    Tasks::Users.cron_runner
     Tasks::LibraryEntries.cron_runner
   end
 end

@@ -8,14 +8,17 @@ require "./kitsu/*"
 require "./enum/*"
 require "./cron/*"
 
+# True for bin/run and bin/spec
+# False for release build
+DEV = !ENV.has_key? "KEMAL_ENV"
+
 # Kemal configuration
 Kemal.config.port = 2222
 serve_static false
 gzip = true
 
-# Use sentry to live-reload files during development if key not set
-# Else, start the Kemal server as normal
-unless ENV.has_key? "KEMAL_ENV"
+# Use sentry to live-reload files during development
+if DEV
   Sentry.run Sentry.config(
     process_name: "API",
     build_command: "crystal",

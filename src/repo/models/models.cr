@@ -46,7 +46,7 @@ module Repo
       field :updated_at, String
       field :created_at, String
       field :status, Int32
-      field :start_date, Time
+      field :start_date, String
       has_one :anime_ratings, AnimeRating
     end
   end

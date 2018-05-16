@@ -4,7 +4,7 @@ module Cron::Tasks::LibraryEntries
   class Mappings
     JSON.mapping({
       data:     Array(LibraryEntries),
-      included: Array(Anime),
+      included: Array(Anime)?,
       links:    Links,
     })
 
@@ -47,6 +47,7 @@ module Cron::Tasks::LibraryEntries
     class Anime
       JSON.mapping({
         id:         String,
+        type:       String,
         attributes: Attributes,
       })
 
@@ -55,7 +56,7 @@ module Cron::Tasks::LibraryEntries
           createdAt: String,
           updatedAt: String,
           status:    String,
-          startDate: String,
+          startDate: String?,
         })
       end
     end
@@ -64,6 +65,12 @@ module Cron::Tasks::LibraryEntries
       JSON.mapping({
         next: String?,
       })
+    end
+
+    # Included is not included if there are no relationships, so
+    # create an empty array to avoid dealing with Nil
+    def included
+      @included ||= Array(Anime).new
     end
   end
 
@@ -81,104 +88,26 @@ module Cron::Tasks::LibraryEntries
     Hibari::Kitsu.get "library-entries", query
   end
 
-  def create_user_anime_library_entry(user_id, entry_id)
-    p "Set user anime library entry #{user_id}, #{entry_id}"
-
-    uale = Repo.get_by(
-      Repo::UserAnimeLibraryEntry,
-      user_id: user_id,
-      anime_library_entry_id: entry_id
-    ) || Repo::UserAnimeLibraryEntry.new
-
-    # 2018-03-20T16:31:12.000Z
-    timestamp = Time.now.to_s "%Y-%m-%dT%H:%M.%LZ"
-    uale.updated_at = timestamp
-
-    p entry_id
-
-    unless uale.user_id && uale.anime_library_entry_id
-      uale.user_id = user_id
-      uale.anime_library_entry_id = entry_id
-      uale.created_at = timestamp
-      p "Added anime library entry"
-      Repo.insert uale
-    else
-      p "Updated anime library entry"
-      Repo.update uale
-    end
-  end
-
-  def create_anime(anime_id)
-    p "Set anime #{anime_id}"
-
-    anime = Repo.get(Repo::Anime, anime_id) || Repo::Anime.new
-
-    timestamp = Time.now.to_s "%Y-%m-%dT%H:%M.%LZ"
-    anime.updated_at = timestamp
-    anime.created_at = timestamp
-
-    # if attributes
-    #  anime.status = AiringStatus.parse(attributes.status)
-    #  anime.start_date = attributes.startDate
-    #  anime.updated_at = attributes.updatedAt
-    #  anime.created_at = attributes.createdAt
-    # end
-
-    if anime.id
-      p "update #{anime_id}"
-      Repo.update anime
-    else
-      p "insert #{anime_id}"
-      anime.id = anime_id
-      Repo.insert anime
-    end
-  end
-
-  def populate_anime(anime_id, attributes)
-  end
-
-  # TODO: Loop through all users in DB and collect their library entries
-
   def library_entries(user_id, offset = 0)
     entries = Mappings.from_json(fetch user_id.to_s, offset*LIMIT_LIBRARY)
 
-    entries.included.each do |r|
-      # p r
-      # create_anime anime_id
+    # Add or update anime associated with library entries
+    entries.included.each do |data|
+      Helper.create_anime(data) unless data.type != "anime"
     end
 
-    entries.data.each do |e|
-      entry_id = e.id.to_i
-      anime_id = e.relationships.media.data.id.to_i
-      attr = e.attributes
+    # Add or update library entries
+    entries.data.each do |data|
+      Helper.create_library_entries data, user_id
+    end
 
-      entry = Repo.get(Repo::AnimeLibraryEntry, entry_id) || Repo::AnimeLibraryEntry.new
-
-      entry.rating = attr.ratingTwenty
-      entry.status = Status.parse(attr.status).value
-      entry.updated_at = attr.updatedAt
-      entry.created_at = attr.createdAt
-      entry.anime_id = anime_id
-
-      create_user_anime_library_entry user_id, entry_id
-
-      p "existing id: #{entry.id}"
-
-      if entry.id
-        p "update #{entry_id}"
-        Repo.update entry
-      else
-        p "insert #{entry_id}"
-        p "user #{user_id}"
-        entry.id = entry_id
-        p "new id: #{entry.id}"
-
-        changeset = Repo::AnimeLibraryEntry.changeset entry
-        p changeset.changes
-
-        Repo.insert entry
-        p "done"
-      end
+    # If links->next exists, then there is another page of library
+    # entries to fetch. If missing (i.e Nil) then we're on the last
+    # page and can continue to the next user
+    if entries.links.next
+      p "# Getting next page" if DEV
+      next_page = offset += 1
+      library_entries user_id, next_page
     end
   end
 
@@ -186,9 +115,10 @@ module Cron::Tasks::LibraryEntries
     query = Repo::Query.select(["id"])
     users = Repo.all Repo::User, query
 
-    users.each do |u|
-      library_entries user_id: u.id
-      # p u.id.to_s
+    users.each do |user|
+      p "## Running for user #{user.id}" if DEV
+      library_entries user.id
+      p "## Finished for user #{user.id}" if DEV
     end
   end
 end

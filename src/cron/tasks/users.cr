@@ -37,30 +37,11 @@ module Cron::Tasks::Users
     # For coursework, limit to 40 users (2 requests of 20)
     # For production, refactor to keep looping until links->next no
     # longer exists
-    0.upto(1) do |i|
+    0.upto(50) do |i|
       data = Mappings.from_json(fetch_users i*LIMIT)
 
-      data.data.each do |u|
-        user_id = u.id.to_i
-
-        # Deleted users are assigned to one -10 ID we want to ignore
-        if user_id == -10
-          next
-        end
-
-        user = Repo.get(Repo::User, user_id) || Repo::User.new
-
-        if user.id
-          user.name = u.attributes.name
-          user.updated_at = u.attributes.updatedAt
-          Repo.update user
-        else
-          user.id = user_id
-          user.name = u.attributes.name
-          user.updated_at = u.attributes.updatedAt
-          user.created_at = u.attributes.createdAt
-          Repo.insert user
-        end
+      data.data.each do |data|
+        Helper.create_user data
       end
     end
   end
