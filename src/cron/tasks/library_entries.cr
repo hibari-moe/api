@@ -79,7 +79,7 @@ module Cron::Tasks::LibraryEntries
       p.add "filter[user_id]", user_id.to_s
       p.add "filter[kind]", "anime"
       p.add "fields[library-entries]", "createdAt,updatedAt,status,progress,ratingTwenty,media"
-      p.add "fields[anime]", "createdAt,updatedAt,status,startDate"
+      p.add "fields[anime]", "createdAt,updatedAt,status,startDate,episodeCount"
       p.add "include", "media"
       p.add "page[limit]", LIMIT_LIBRARY.to_s
       p.add "page[offset]", offset.to_s

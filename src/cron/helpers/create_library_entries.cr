@@ -10,6 +10,7 @@ module Cron::Helper
     # Add or update attributes
     entry.rating = attr.ratingTwenty
     entry.status = Status.parse(attr.status).value
+    entry.progress = attr.progress
     entry.updated_at = attr.updatedAt
     entry.created_at = attr.createdAt
     entry.anime_id = anime_id

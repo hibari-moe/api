@@ -6,6 +6,7 @@ module Cron::Helper
 
     anime.status = AiringStatus.parse(attr.status).value
     anime.start_date = attr.startDate
+    anime.episodes = attr.episodeCount
     anime.updated_at = attr.updatedAt
     anime.created_at = attr.createdAt
 
