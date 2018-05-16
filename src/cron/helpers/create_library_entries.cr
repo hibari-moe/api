@@ -13,9 +13,7 @@ module Cron::Helper
     entry.updated_at = attr.updatedAt
     entry.created_at = attr.createdAt
     entry.anime_id = anime_id
-
-    # Create relational link between users and library entry
-    create_user_anime_library_entry user_id, entry_id
+    entry.user_id = user_id
 
     if entry.id
       p "update entry #{entry_id}" if DEV
