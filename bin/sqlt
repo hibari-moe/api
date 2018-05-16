@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sqlt-graph --show-datatypes --show-sizes --show-constraints --natural-join -l dot -n record -f SQLite -t png -o output.png db/schema.sql

@@ -1,59 +1,9 @@
 {
-  "latex-workshop.latex.tools": [
-    {
-      "name": "pygmentise",
-      "command": "node",
-      "args": [
-        "../bin/latex_workshop_hotfix",
-        "-i",
-        "../bin/pyg"
-      ]
-    },
-    {
-      "name": "tectonic",
-      "command": "node",
-      "args": [
-        "../bin/latex_workshop_hotfix",
-        "-i",
-        "../bin/tex"
-      ]
-    }
-  ],
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "Build LaTeX",
-      "tools": [
-        "pygmentise",
-        "tectonic"
-      ]
-    }
-  ],
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.latex.outputDir": "out",
-  "latex-workshop.latex.clean.enabled": false,
-  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
-  "latex-workshop.latex.autoBuild.onSave.enabled": true,
-  "latex-workshop.latex.autoBuild.onTexChange.enabled": false,
-  "spellright.groupDictionaries": false,
-  "spellright.language": "en-GB",
   "files.exclude": {
     "lib": true,
     ".shards": true,
     "**/.git": true,
-    "**/.gitkeep": true,
-    "**/out": true,
-    "report/pyg": true
+    "**/.gitkeep": true
   },
-  "editor.wordWrap": "bounded",
-  "material-icon-theme.hidesExplorerArrows": true,
-  "material-icon-theme.folders.associations": {
-    "report": "docs",
-    "research": "docs",
-    "implementation": "docs",
-    "pyg": "temp",
-    "bin": "config",
-    "hibari": "components",
-    "json_api": "components",
-    "kitsu": "components"
-  }
+  "editor.wordWrap": "bounded"
 }
