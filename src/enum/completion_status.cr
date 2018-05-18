@@ -1,4 +1,4 @@
-enum Status
+enum CompletionStatus
   Current   = 1
   Planned
   Completed

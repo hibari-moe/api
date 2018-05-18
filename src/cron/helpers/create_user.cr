@@ -9,16 +9,21 @@ module Cron::Helper
     user = Repo.get(Repo::User, user_id) || Repo::User.new
 
     user.name = attr.name
-    user.updated_at = attr.updatedAt
-    user.created_at = attr.createdAt
+    user.updated_at = current_time
 
     if user.id
-      p "update user #{user_id}" if DEV
+      return nil if user.name === attr.name
+
+      p "update user #{user_id}" # if DEV
       Repo.update user
     else
-      p "insert user #{user_id}" if DEV
+      p "insert user #{user_id}" # if DEV
       user.id = user_id
+      user.created_at = current_time
       Repo.insert user
     end
+
+    user = nil
+    return nil
   end
 end

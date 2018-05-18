@@ -4,11 +4,11 @@ require "crecto"
 require "./models/*"
 
 # Log database commands during development
-unless ENV.has_key? "KEMAL_ENV"
-  file = File.open("db/crecto.log", "w")
-  file.sync = true
-  Crecto::DbLogger.set_handler(file)
-end
+# unless ENV.has_key? "KEMAL_ENV"
+#  file = File.open("db/crecto.log", "w")
+#  file.sync = true
+#  Crecto::DbLogger.set_handler(file)
+# end
 
 module Repo
   extend Crecto::Repo

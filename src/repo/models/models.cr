@@ -9,6 +9,9 @@ module Repo
       field :name, String
       has_many :anime_library_entries, AnimeLibraryEntry
     end
+
+    def finalize
+    end
   end
 
   class AnimeLibraryEntry < Crecto::Model
@@ -24,6 +27,9 @@ module Repo
       belongs_to :user, User
       belongs_to :anime, Anime
     end
+
+    def finalize
+    end
   end
 
   class Anime < Crecto::Model
@@ -36,6 +42,9 @@ module Repo
       field :status, Int64
       field :episodes, Int64
       field :start_date, String
+    end
+
+    def finalize
     end
   end
 end

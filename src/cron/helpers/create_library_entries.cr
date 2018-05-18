@@ -8,21 +8,32 @@ module Cron::Helper
     entry = Repo.get(Repo::AnimeLibraryEntry, entry_id) || Repo::AnimeLibraryEntry.new
 
     # Add or update attributes
+    entry.status = CompletionStatus.parse(attr.status).value
     entry.rating = attr.ratingTwenty
-    entry.status = Status.parse(attr.status).value
     entry.progress = attr.progress
-    entry.updated_at = attr.updatedAt
-    entry.created_at = attr.createdAt
-    entry.anime_id = anime_id
-    entry.user_id = user_id
+    entry.updated_at = current_time
 
     if entry.id
-      p "update entry #{entry_id}" if DEV
+      if ( # Don't update if data hasn't changed
+        entry.status === CompletionStatus.parse(attr.status).value &&
+        entry.rating === attr.ratingTwenty &&
+        entry.progress === attr.progress
+      )
+       return nil
+      end
+
+      p "update entry #{entry_id}" # if DEV
       Repo.update entry
     else
-      p "insert entry #{entry_id}" if DEV
+      p "insert entry #{entry_id}" # if DEV
       entry.id = entry_id
+      entry.anime_id = anime_id
+      entry.user_id = user_id
+      entry.created_at = current_time
       Repo.insert entry
     end
+
+    entry = nil
+    return nil
   end
 end

@@ -106,8 +106,10 @@ module Cron::Tasks::LibraryEntries
     # entries to fetch. If missing (i.e Nil) then we're on the last
     # page and can continue to the next user
     if entries.links.next
+      entries = nil
       return true
     else
+      entries = nil
       return false
     end
   end
@@ -119,29 +121,29 @@ module Cron::Tasks::LibraryEntries
     while has_next_page
       has_next_page = library_entries user_id, offset
       if has_next_page
-        p "# Getting next page" if DEV
+        p "# Getting next page" # if DEV
         offset += 1
       else
-        p "# No more pages" if DEV
+        p "# No more pages" # if DEV
         break
       end
     end
 
-    # if library_entries user_id, offset
-    #  p "# Getting next page" if DEV
-    #  next_page = offset += 1
-    #  library_entries user_id, next_page
-    # end
+    return nil
   end
 
   def cron_runner
     query = Repo::Query.select(["id"])
     users = Repo.all Repo::User, query
 
-    users.each do |user|
-      p "## Running for user #{user.id}" if DEV
-      library_entries_init user.id
-      p "## Finished for user #{user.id}" if DEV
+    users.compact.each do |user|
+      user_id = user.id.not_nil!.to_i
+      next if user_id < 12945
+
+      p "## Running for user #{user.id}" # if DEV
+      library_entries_init user_id
+      GC.collect
+      p "## Finished for user #{user.id}" # if DEV
     end
   end
 end
