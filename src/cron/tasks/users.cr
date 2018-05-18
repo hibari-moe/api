@@ -3,7 +3,8 @@ module Cron::Tasks::Users
 
   struct Mappings
     JSON.mapping({
-      data: Array(Users),
+      data:  Array(Users),
+      links: Links,
     })
 
     struct Users
@@ -20,6 +21,12 @@ module Cron::Tasks::Users
         })
       end
     end
+
+    struct Links
+      JSON.mapping({
+        next: String?,
+      })
+    end
   end
 
   def fetch_users(offset = 0)
@@ -33,16 +40,42 @@ module Cron::Tasks::Users
     Hibari::Kitsu.get "users", query
   end
 
-  def cron_runner
-    # For coursework, limit to 100 users (5 requests of 20)
-    # For production, refactor to keep looping until links->next no
-    # longer exists
-    0.upto(5) do |i|
-      data = Mappings.from_json(fetch_users i*LIMIT)
+  def users(page = 0)
+    data = Mappings.from_json(fetch_users page*LIMIT)
+    data.data.each do |d|
+      Helper.create_user data: d
+    end
 
-      data.data.each do |data|
-        Helper.create_user data
+    if data.links.next
+      data = nil
+      return true
+    else
+      data = nil
+      return false
+    end
+  end
+
+  def users_init(page = 0)
+    has_next_page = true
+    next_page = page
+
+    while has_next_page
+      has_next_page = users page
+      if has_next_page
+        GC.collect
+        p "# Getting next page" if DEV
+        page += 1
+      else
+        p "# No more pages" if DEV
+        break
       end
     end
+
+    return nil
+  end
+
+  def cron_runner
+    users_init 1
+    GC.collect
   end
 end
