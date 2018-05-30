@@ -70,31 +70,33 @@ module Cron::Tasks::LibraryEntries
 
     # Included is not included if there are no relationships, so
     # create an empty array to avoid dealing with Nil
-    def included
-      @included ||= Array(Anime).new
-    end
+    #def included
+    #  @included ||= Array(Anime).new
+    #end
   end
 
   def fetch(user_id, offset = 0)
     query = HTTP::Params.build do |p|
-      p.add "filter[user_id]", user_id.to_s
+      p.add "filter[user_id]", "#{user_id}"
       p.add "filter[kind]", "anime"
       p.add "fields[library-entries]", "createdAt,updatedAt,status,progress,ratingTwenty,media"
       p.add "fields[anime]", "createdAt,updatedAt,status,startDate,episodeCount"
       p.add "include", "media"
-      p.add "page[limit]", LIMIT_LIBRARY.to_s
-      p.add "page[offset]", offset.to_s
+      p.add "page[limit]", "#{LIMIT_LIBRARY}"
+      p.add "page[offset]", "#{offset}"
     end
 
     Hibari::Kitsu.get "library-entries", query
   end
 
   def library_entries(user_id, offset = 0)
-    entries = Mappings.from_json(fetch user_id.to_s, offset*LIMIT_LIBRARY)
+    entries = Mappings.from_json(fetch user_id, offset*LIMIT_LIBRARY)
 
     # Add or update anime associated with library entries
-    entries.included.each do |data|
-      Helper.create_anime data unless data.type != "anime"
+    unless entries.included.nil?
+      entries.included.not_nil!.each do |data|
+        Helper.create_anime data unless data.type != "anime"
+      end
     end
 
     # Add or update library entries
@@ -134,7 +136,7 @@ module Cron::Tasks::LibraryEntries
 
     users.compact.each do |user|
       user_id = user.id.not_nil!.to_i
-      next if user_id < 143423
+      next if user_id < 143626
 
       p "Running for user #{user.id}" # if DEV
       library_entries_init user_id
