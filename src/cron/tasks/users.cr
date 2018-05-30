@@ -47,10 +47,8 @@ module Cron::Tasks::Users
     end
 
     if data.links.next
-      data = nil
       return true
     else
-      data = nil
       return false
     end
   end
@@ -62,20 +60,16 @@ module Cron::Tasks::Users
     while has_next_page
       has_next_page = users page
       if has_next_page
-        GC.collect
-        p "# Getting next page" if DEV
+        p "Getting next page" if DEV
         page += 1
       else
-        p "# No more pages" if DEV
+        p "No more pages" if DEV
         break
       end
     end
-
-    return nil
   end
 
   def cron_runner
     users_init 1
-    GC.collect
   end
 end

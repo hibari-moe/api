@@ -14,18 +14,16 @@ module Cron::Helper
     entry.updated_at = current_time
 
     if entry.id
-      if ( # Don't update if data hasn't changed
+      unless ( # Don't update if data hasn't changed
         entry.status === CompletionStatus.parse(attr.status).value &&
         entry.rating === attr.ratingTwenty &&
         entry.progress === attr.progress
       )
-       return nil
+        p "Update entry #{entry_id}" # if DEV
+        Repo.update entry
       end
-
-      p "update entry #{entry_id}" # if DEV
-      Repo.update entry
     else
-      p "insert entry #{entry_id}" # if DEV
+      p "Insert entry #{entry_id}" # if DEV
       entry.id = entry_id
       entry.anime_id = anime_id
       entry.user_id = user_id
@@ -33,7 +31,6 @@ module Cron::Helper
       Repo.insert entry
     end
 
-    entry = nil
-    return nil
+    GC.free(entry.as(Void*))
   end
 end

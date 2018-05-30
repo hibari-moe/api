@@ -12,18 +12,16 @@ module Cron::Helper
     user.updated_at = current_time
 
     if user.id
-      return nil if user.name === attr.name
-
-      p "update user #{user_id}" # if DEV
+      return if user.name === attr.name
+      p "Update user #{user_id}" # if DEV
       Repo.update user
     else
-      p "insert user #{user_id}" # if DEV
+      p "Insert user #{user_id}" # if DEV
       user.id = user_id
       user.created_at = current_time
       Repo.insert user
     end
 
-    user = nil
-    return nil
+    GC.free(user.as(Void*))
   end
 end
